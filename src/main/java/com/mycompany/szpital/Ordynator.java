@@ -9,5 +9,30 @@ package com.mycompany.szpital;
  * @author Bartek
  */
 public class Ordynator extends ZarzadzajacySalami {
+
+    public Ordynator() {
+    }
+    
+    public void addReservation(){
+    }
+    
+    public void editReservation(){
+    }
+    
+    public void deleteReservation(){
+    }
+    
+    public void changeRoomPurpose(){
+    }
+    
+    public void acceptReservationRequest(){
+    }
+    
+    public void rejectReservationRequest(){
+    }
+    
+    public void acceptRoomEditionRequest(){
+    }
+    
     
 }

@@ -8,6 +8,18 @@ package com.mycompany.szpital;
  *
  * @author Bartek
  */
-public class ZarzadzajacySalami extends Uzytkownik {
+public abstract class ZarzadzajacySalami extends Uzytkownik {
+    
+    public void sendRequestForAddingEquipment(){
+    }
+    
+    public void sendRequestForDeletingEquipment(){
+    }
+    
+    public void sendRequestForChangingEquipmentStatus(){
+    }
+    
+    public void sendRequestForDisinfection(){
+    }
     
 }

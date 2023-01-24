@@ -9,5 +9,17 @@ package com.mycompany.szpital;
  * @author Bartek
  */
 public class Lekarz extends ZarzadzajacySalami {
+
+    public Lekarz() {
+    }
+    
+    public void sendRequestForReservation(){
+    }
+    
+    public void sendRequestForDeletingReservation(){
+    }
+    
+    public void sendRequestForEditingReservation(){
+    }
     
 }
