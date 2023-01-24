@@ -11,6 +11,12 @@ package com.mycompany.szpital;
 public class Lekarz extends ZarzadzajacySalami {
 
     public Lekarz(String name, String surname, int phoneNumber, String login, String password) {
+        
+        this.name = name;
+        this.surname = surname;
+        this.login = login;
+        this.password = password;
+        this.phoneNumber = phoneNumber;
     }
     
     public void sendRequestForReservation(){

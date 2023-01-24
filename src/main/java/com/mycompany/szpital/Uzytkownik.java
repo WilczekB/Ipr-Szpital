@@ -10,15 +10,25 @@ package com.mycompany.szpital;
  */
 abstract class Uzytkownik {
     
-    String fullName, password, login;
+    String name, surname, password, login;
     int phoneNumber;
-    
-    public void setFullName(String fullName){
-        
-        this.fullName = fullName;
-        
+
+    public String getName() {
+        return name;
     }
-    
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public void setSurname(String surname) {
+        this.surname = surname;
+    }
+        
     public void setPassword(String password){
     
         this.password = password;
@@ -36,14 +46,7 @@ abstract class Uzytkownik {
         this.phoneNumber = phoneNumber;
         
     }
-    
-    public String getFullName()
-   {
-    
-        return fullName;
-        
-    }
-    
+      
     public String getPassword(){
     
         return password;
