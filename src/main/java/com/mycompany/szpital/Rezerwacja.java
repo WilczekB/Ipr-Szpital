@@ -16,16 +16,16 @@ public class Rezerwacja {
     private int id;
     private LocalDate beginningDate, endingDate;
     private LocalTime beginningHour, endingHour;
-    private LinkedHashMap<Integer, Sala> rooms;
+    private Sala room;
     private LinkedHashMap<Integer, Sprzet> equipment;
 
-    public Rezerwacja(int id, LocalDate beginningDate, LocalDate endingDate, LocalTime beginningHour, LocalTime endingHour, LinkedHashMap<Integer, Sala> rooms, LinkedHashMap<Integer, Sprzet> equipment) {
+    public Rezerwacja(int id, LocalDate beginningDate, LocalDate endingDate, LocalTime beginningHour, LocalTime endingHour, int number, String type, LinkedHashMap<Integer, Sprzet> equipment) {
         this.id = id;
         this.beginningDate = beginningDate;
         this.endingDate = endingDate;
         this.beginningHour = beginningHour;
         this.endingHour = endingHour;
-        this.rooms = rooms;
+        this.room = new Sala(number, type);
         this.equipment = equipment;
     }
 

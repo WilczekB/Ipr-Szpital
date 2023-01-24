@@ -54,7 +54,7 @@ public class Sprzet {
         this.id = id;
     }
 
-    public boolean isIsDisinfected() {
+    public boolean isItDisinfected() {
         return isDisinfected;
     }
 
