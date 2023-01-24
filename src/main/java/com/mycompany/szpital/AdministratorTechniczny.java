@@ -9,5 +9,10 @@ package com.mycompany.szpital;
  * @author Bartek
  */
 public class AdministratorTechniczny extends Uzytkownik {
+
+    public AdministratorTechniczny(String name, String surname, int phoneNumber, String login, String password) {
+    }
+    
+    
     
 }

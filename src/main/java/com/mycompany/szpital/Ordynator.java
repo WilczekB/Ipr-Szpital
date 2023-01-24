@@ -10,7 +10,7 @@ package com.mycompany.szpital;
  */
 public class Ordynator extends ZarzadzajacySalami {
 
-    public Ordynator() {
+    public Ordynator(String name, String surname, int phoneNumber, String login, String password) {
     }
     
     public void addReservation(){
