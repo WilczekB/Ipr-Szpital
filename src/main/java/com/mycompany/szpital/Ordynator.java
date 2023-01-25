@@ -7,6 +7,7 @@ package com.mycompany.szpital;
 import java.util.LinkedHashMap;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.Map;
 /**
  *
  * @author Bartek
@@ -14,6 +15,7 @@ import java.time.LocalTime;
 public class Ordynator extends ZarzadzajacySalami {
     
     private LinkedHashMap<Integer, Rezerwacja> reservations;
+    private LinkedHashMap<Integer, Powiadomienie> alerts;
 
     public Ordynator(String name, String surname, int phoneNumber, String login, String password) {
         
@@ -30,18 +32,39 @@ public class Ordynator extends ZarzadzajacySalami {
         Rezerwacja reservation = new Rezerwacja(id, name, surname, startDate, endDate, startTime, endTime, room);
         Integer key = reservations.size();
         reservations.put(key, reservation);
+        
     }
     
     public void editReservation(){
     }
     
-    public void deleteReservation(){
+    public void deleteReservation(Rezerwacja reservation){
+        
+        for(Map.Entry<Integer, Rezerwacja> entry: reservations.entrySet()){
+            
+            if(reservation.getId() == entry.getValue().getId())
+            {
+                reservations.remove(entry);
+            }
+            
+        }
+        
     }
     
     public void changeRoomPurpose(){
     }
     
-    public void acceptReservationRequest(){
+    public void acceptReservationRequest(Powiadomienie alert){
+        
+        for(Map.Entry<Integer, Powiadomienie> entry: alerts.entrySet()){
+        
+            if(alert.getId() == entry.getValue().getId())
+            {
+                entry.getValue().setStatus("Zaakceptowano");
+            }
+            
+        }
+        
     }
     
     public void rejectReservationRequest(){
