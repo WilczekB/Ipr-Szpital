@@ -10,10 +10,11 @@ package com.mycompany.szpital;
  */
 public class EkranStartowy extends javax.swing.JFrame {
 
-    /**
-     * Creates new form EkranStartowy
-     */
-    public EkranStartowy() {
+    private System sys;
+    
+    public EkranStartowy(System s1) {
+        sys = s1;
+        
         initComponents();
     }
 
@@ -26,8 +27,8 @@ public class EkranStartowy extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPasswordField1 = new javax.swing.JPasswordField();
-        jTextField1 = new javax.swing.JTextField();
+        jPasswordField = new javax.swing.JPasswordField();
+        jLoginField = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
@@ -35,9 +36,13 @@ public class EkranStartowy extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPasswordField1.setText("jPasswordField1");
+        jPasswordField.setText("jPasswordField1");
 
-        jTextField1.setText("jTextField1");
+        jLoginField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jLoginFieldActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Login");
 
@@ -64,8 +69,8 @@ public class EkranStartowy extends javax.swing.JFrame {
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 57, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(jTextField1)
-                    .addComponent(jPasswordField1))
+                    .addComponent(jLoginField)
+                    .addComponent(jPasswordField))
                 .addGap(202, 202, 202))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,11 +89,11 @@ public class EkranStartowy extends javax.swing.JFrame {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLoginField, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPasswordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
@@ -99,8 +104,17 @@ public class EkranStartowy extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        String password = jPasswordField.getText();
+        String login = jLoginField.getText();
+        
+        jPasswordField.setText("");
+        jLoginField.setText("");
+        
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jLoginFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jLoginFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jLoginFieldActionPerformed
 
     /**
      * @param args the command line arguments
@@ -132,7 +146,7 @@ public class EkranStartowy extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new EkranStartowy().setVisible(true);
+                new EkranStartowy(sys).setVisible(true);
             }
         });
     }
@@ -142,7 +156,7 @@ public class EkranStartowy extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jLoginField;
+    private javax.swing.JPasswordField jPasswordField;
     // End of variables declaration//GEN-END:variables
 }
