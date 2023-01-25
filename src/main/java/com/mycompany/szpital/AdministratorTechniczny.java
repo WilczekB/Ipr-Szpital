@@ -11,13 +11,9 @@ import java.util.*;
  */
 public class AdministratorTechniczny extends Uzytkownik {
 
-<<<<<<< HEAD
-    public AdministratorTechniczny(String name, String surname, int phoneNumber, String login, String password, String sort) {
-=======
     private LinkedHashMap<Integer, Sprzet> equipment;
     
-    public AdministratorTechniczny(String name, String surname, int phoneNumber, String login, String password) {
->>>>>>> Develop
+    public AdministratorTechniczny(String name, String surname, int phoneNumber, String login, String password, String sort) {
         
         this.name = name;
         this.surname = surname;
