@@ -51,7 +51,10 @@ public class Ordynator extends ZarzadzajacySalami {
         
     }
     
-    public void changeRoomPurpose(){
+    public void changeRoomPurpose(String type, Sala room){
+        
+        room.setType(type);
+        
     }
     
     public void acceptReservationRequest(Powiadomienie alert){
