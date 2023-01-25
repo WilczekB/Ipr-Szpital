@@ -10,8 +10,8 @@ package com.mycompany.szpital;
  */
 abstract class Uzytkownik {
     
-    String name, surname, password, login;
-    int phoneNumber;
+    protected String name, surname, password, login, sort;
+    protected int phoneNumber;
 
     public String getName() {
         return name;
@@ -46,6 +46,10 @@ abstract class Uzytkownik {
         this.phoneNumber = phoneNumber;
         
     }
+    
+    public void setSort(String sort){
+        this.sort = sort;
+    }
       
     public String getPassword(){
     
@@ -63,6 +67,10 @@ abstract class Uzytkownik {
         
         return phoneNumber;
         
+    }
+    
+    public String getSort(){
+        return this.sort;
     }
     
     public boolean validateUser(String login, String password){

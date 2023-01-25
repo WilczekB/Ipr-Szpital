@@ -9,9 +9,3 @@ package com.mycompany.szpital;
  *
  * @author Lenovo
  */
-public class Szpital {
-
-    public static void main(String[] args) {
-        System.out.println("Hello World!");
-    }
-}

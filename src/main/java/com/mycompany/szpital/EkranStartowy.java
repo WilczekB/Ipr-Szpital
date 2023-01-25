@@ -12,9 +12,8 @@ public class EkranStartowy extends javax.swing.JFrame {
 
     private System sys;
     
-    public EkranStartowy(System s1) {
-        sys = s1;
-        
+    public EkranStartowy() {
+        sys = new System();
         initComponents();
     }
 
@@ -106,6 +105,22 @@ public class EkranStartowy extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String password = jPasswordField.getText();
         String login = jLoginField.getText();
+        Uzytkownik user = sys.checkLogin(login, password);
+        
+        if(user == null){
+            ///Komiunikat chujowe logowwanie
+        }
+        else{
+            if("administrator".equals(user.getSort())){
+                Ekran_admin_tech userMainGui = new Ekran_admin_tech();
+            }
+            else if("ordynator".equals(user.getSort())){
+                Ekran_ordynator userMainGui = new Ekran_ordynator();
+            }
+            else if("lekarz".equals(user.getSort())){
+                Ekran_lekarz userMainGui = new Ekran_lekarz();
+            }
+        }
         
         jPasswordField.setText("");
         jLoginField.setText("");
@@ -115,41 +130,6 @@ public class EkranStartowy extends javax.swing.JFrame {
     private void jLoginFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jLoginFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jLoginFieldActionPerformed
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(EkranStartowy.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(EkranStartowy.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(EkranStartowy.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(EkranStartowy.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new EkranStartowy(sys).setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;

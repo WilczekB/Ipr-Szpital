@@ -27,8 +27,9 @@ public class System {
         int phoneNumber = Integer.parseInt(data[2]);
         String login = data[3];
         String password = data[4];
+        String sort = data[5];
         
-        return new Lekarz(name, surName, phoneNumber, login, password);
+        return new Lekarz(name, surName, phoneNumber, login, password, sort);
         
     }
     
@@ -39,8 +40,9 @@ public class System {
         int phoneNumber = Integer.parseInt(data[2]);
         String login = data[3];
         String password = data[4];
+        String sort = data[5];
         
-        return new Ordynator(name, surName, phoneNumber, login, password);
+        return new Ordynator(name, surName, phoneNumber, login, password, sort);
     }
     
     private static AdministratorTechniczny createAdministrator(String[] data){
@@ -50,8 +52,9 @@ public class System {
         int phoneNumber = Integer.parseInt(data[2]);
         String login = data[3];
         String password = data[4];
+        String sort = data[5];
         
-        return new AdministratorTechniczny(name, surName, phoneNumber, login, password);
+        return new AdministratorTechniczny(name, surName, phoneNumber, login, password, sort);
     }
     
     private static Sprzet createEquipment(String[] data){
@@ -65,7 +68,7 @@ public class System {
         return new Sprzet(name, category, alocation, id, isDisinfected);
     }
     
-    private static Rezerwacja createReservation(String[] data){
+    private static  void createReservation(String[] data){
         
         int id = Integer.parseInt(data[0]);
         int number = Integer.parseInt(data[1]);
@@ -215,5 +218,64 @@ public class System {
             e.printStackTrace();
         }
     
+    }
+    
+    public Uzytkownik checkLogin(String log, String pass){
+        
+        for(Map.Entry<Integer, Lekarz> set : doctors.entrySet()){
+            if(set.getValue().validateUser(log, pass)){
+                return set.getValue();
+            }
+        }
+        
+        for(Map.Entry<Integer, Ordynator> set : headPhysicians.entrySet()){
+            if(set.getValue().validateUser(log, pass)){
+                return set.getValue();
+            }
+        }
+        
+        for(Map.Entry<Integer, AdministratorTechniczny> set : admins.entrySet()){
+            if(set.getValue().validateUser(log, pass)){
+                return set.getValue();
+            }
+        }
+        return null;
+}
+    
+    
+    
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(EkranStartowy.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(EkranStartowy.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(EkranStartowy.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(EkranStartowy.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new EkranStartowy().setVisible(true);
+            }
+        });
     }
 }
