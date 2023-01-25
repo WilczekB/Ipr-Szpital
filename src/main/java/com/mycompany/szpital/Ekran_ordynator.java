@@ -77,9 +77,17 @@ public class Ekran_ordynator extends javax.swing.JFrame {
         jButton4.setText("Wyloguj");
 
 
-        //TableModel model = new RezerwacjaTableModel(reservations);
-
-        jTable2.setModel(model);
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "ID rezerwacji", "Numer sali", "Typ sali", "Imię i nazwisko", "Data", "Godzina"
+            }
+        ));
         jTable2.setToolTipText("");
         jScrollPane3.setViewportView(jTable2);
 
