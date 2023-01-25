@@ -46,7 +46,7 @@ public class DodawanieRezerwacji extends javax.swing.JFrame {
 
         jButton2.setText("Cofnij");
 
-        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sala 1", "Sala 2", "Sala 3", "Sala 4", "Sala 5", "Sala 6", "Sala 7", "Sala 8", "Sala 9", "Sala 10", "Sala 11", "Sala 12" }));
 
         jLabel4.setText("Data rozpoczęcia:");
 
