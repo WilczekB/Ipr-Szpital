@@ -4,11 +4,16 @@
  */
 package com.mycompany.szpital;
 
+import java.util.LinkedHashMap;
+import java.time.LocalDate;
+import java.time.LocalTime;
 /**
  *
  * @author Bartek
  */
 public class Ordynator extends ZarzadzajacySalami {
+    
+    private LinkedHashMap<Integer, Rezerwacja> reservations;
 
     public Ordynator(String name, String surname, int phoneNumber, String login, String password) {
         
@@ -20,7 +25,11 @@ public class Ordynator extends ZarzadzajacySalami {
         
     }
     
-    public void addReservation(){
+    public void addReservation(int id, Sala room, String name, String surname, LocalDate startDate, LocalDate endDate, LocalTime startTime, LocalTime endTime){
+        
+        Rezerwacja reservation = new Rezerwacja(id, name, surname, startDate, endDate, startTime, endTime, room);
+        Integer key = reservations.size();
+        reservations.put(key, reservation);
     }
     
     public void editReservation(){

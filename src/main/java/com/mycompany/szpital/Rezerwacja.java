@@ -20,7 +20,7 @@ public class Rezerwacja {
     private Sala room;
     private LinkedHashMap<Integer, Sprzet> equipment;
 
-    public Rezerwacja(int id,String name,String surname,LocalDate beginningDate, LocalDate endingDate, LocalTime beginningHour, LocalTime endingHour, int number, String type, LinkedHashMap<Integer, Sprzet> equipment) {
+    public Rezerwacja(int id,String name,String surname,LocalDate beginningDate, LocalDate endingDate, LocalTime beginningHour, LocalTime endingHour, Sala room) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -28,8 +28,7 @@ public class Rezerwacja {
         this.endingDate = endingDate;
         this.beginningHour = beginningHour;
         this.endingHour = endingHour;
-        this.room = new Sala(number, type);
-        this.equipment = equipment;
+        this.room = room;
     }
 
     public String getName() {
@@ -92,6 +91,13 @@ public class Rezerwacja {
     
         return room;
     
+    }
+    
+    public void addDeviceToEquipment(Sprzet device){
+    
+        Integer key = equipment.size()+1;
+        equipment.put(key, device);
+        
     }
     
     
