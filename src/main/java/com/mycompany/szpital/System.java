@@ -83,54 +83,7 @@ public class System {
         //return new Rezerwacja(id, startDate, endDate, startTime, endTime, number, type);
     }
     
-    public void readUsersFromFile(String path){
-        
-        String[] values;
-        String line="";
-        int key=0;
-        
-        try{
-            
-            BufferedReader br = new BufferedReader(new FileReader((path)));
-            
-            while((line = br.readLine()) != null){
-                
-                values = line.split("    ");
-                
-                switch(values[5]){
-                    case "lekarz":
-                        
-                        Lekarz doctor = createLekarz(values);
-                        doctors.put(key, doctor);
-                        key++;
-                        
-                        break;
-                    case "ordynator":
-                        
-                        Ordynator headPhysician = createOrdynator(values);
-                        headPhysicians.put(key, headPhysician);
-                        key++;
-                        
-                        break;
-                    case "administrator":
-                        
-                        AdministratorTechniczny admin = createAdministrator(values);
-                        admins.put(key, admin);
-                        key++;
-                        
-                        break;
-                }
-                
-                br.close();
-            }
-            
-        } catch (FileNotFoundException e){
-            e.printStackTrace();
-        } catch (IOException e){
-            e.printStackTrace();
-        }
-        
-    }
+    
     
     public void readEquipmentFromFile(String path){
         
