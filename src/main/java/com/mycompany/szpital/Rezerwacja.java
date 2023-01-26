@@ -19,6 +19,7 @@ public class Rezerwacja {
     private LocalTime beginningHour, endingHour;
     private Sala room;
     private LinkedHashMap<Integer, Sprzet> equipment;
+    private Uzytkownik user;
 
     public Rezerwacja(int id,String name,String surname,LocalDate beginningDate, LocalDate endingDate, LocalTime beginningHour, LocalTime endingHour, Sala room) {
         this.id = id;
@@ -92,6 +93,16 @@ public class Rezerwacja {
         return room;
     
     }
+
+    public Uzytkownik getUser() {
+        return user;
+    }
+
+    public void setUser(Uzytkownik user) {
+        this.user = user;
+    }
+    
+    
     
     public void addDeviceToEquipment(Sprzet device){
     
