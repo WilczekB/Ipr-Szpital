@@ -27,7 +27,7 @@ public class RepoSprzet {
     }
     
     public RepoSprzet(){
-        this.readFromDataBase("Sprzet.txt");
+        this.readFromDataBase("Data/Sprzet.txt");
     }
     
     private static Sprzet createDevice(String[] data){

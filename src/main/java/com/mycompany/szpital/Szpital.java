@@ -16,17 +16,17 @@ public class Szpital {
     private RepoSprzet equipments;
     private RepoSal rooms;
     
-    public void System(){
+    public Szpital(){
         this.users = new RepoUzytkownik();
-        this.reservations = new RepoRezerwacja();
-        this.equipments = new RepoSprzet();
-        this.rooms = new RepoSal();
+        //this.reservations = new RepoRezerwacja();
+        //this.equipments = new RepoSprzet();
+        //this.rooms = new RepoSal();
     }
       
     public Uzytkownik checkLogin(String log, String pass){
         Uzytkownik user;
         
-        user = users.getLogin(log, pass);
+        user = this.users.getLogin(log, pass);
         return user;
     }
     

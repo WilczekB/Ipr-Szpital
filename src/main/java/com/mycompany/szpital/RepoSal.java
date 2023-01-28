@@ -23,7 +23,7 @@ public class RepoSal {
     
     public RepoSal()
     {
-        this.readFromDataBase("Sale.txt");
+        this.readFromDataBase("Data/Sale.txt");
     }
     
     private static Sala createRoom(String[] data){

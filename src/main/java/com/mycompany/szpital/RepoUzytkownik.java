@@ -25,7 +25,10 @@ public class RepoUzytkownik {
     
     public RepoUzytkownik()
     {
-       this.readFromDataBase("Uzytkownicy.txt");
+       this.doctors = new LinkedHashMap<Integer, Lekarz>();
+       this.admins = new LinkedHashMap<Integer, AdministratorTechniczny>();
+       this.headPhysicians = new LinkedHashMap<Integer, Ordynator>();
+       this.readFromDataBase("C:/Users/Lenovo/Documents/7sem/IPR/Ipr-Szpital/src/main/java/com/mycompany/szpital/Data/Uzytkownicy.txt");
     }
     
     private static Lekarz createDoctor(String[] data){
