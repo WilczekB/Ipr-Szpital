@@ -121,6 +121,57 @@ public class RepoUzytkownik {
     
     public void writeToDataBase(String path){
         
+        BufferedWriter writer = null;
+        
+        try{
+            
+            FileWriter stream = new FileWriter(path);
+            writer = new BufferedWriter(stream);
+            
+            for(Map.Entry<Integer, AdministratorTechniczny> entry: admins.entrySet()){
+                
+                writer.write(entry.getKey() + "    " + entry.getValue().getName() + "    " + 
+                        entry.getValue().getPhoneNumber() + "    " + entry.getValue().getSurname() + "    " + entry.getValue().getLogin() + 
+                        "    " + entry.getValue().getPassword() + "    " + entry.getValue().getSort());
+                
+                writer.newLine();
+            }
+            
+            for(Map.Entry<Integer, Lekarz> entry: doctors.entrySet()){
+                
+                writer.write(entry.getKey() + "    " + entry.getValue().getName() + "    " + 
+                        entry.getValue().getPhoneNumber() + "    " + entry.getValue().getSurname() + "    " + entry.getValue().getLogin() + 
+                        "    " + entry.getValue().getPassword() + "    " + entry.getValue().getSort());
+                
+                writer.newLine();
+                
+            }
+            
+            for(Map.Entry<Integer, Ordynator> entry: headPhysicians.entrySet()){
+                
+                writer.write(entry.getKey() + "    " + entry.getValue().getName() + "    " + 
+                        entry.getValue().getPhoneNumber() + "    " + entry.getValue().getSurname() + "    " + entry.getValue().getLogin() + 
+                        "    " + entry.getValue().getPassword() + "    " + entry.getValue().getSort());
+                
+                writer.newLine();
+                
+            }
+            
+            writer.flush();
+        } catch (IOException e) {
+            
+            e.printStackTrace();
+            
+        }
+        finally{
+            try{
+                writer.close();
+            } catch (Exception e) {
+                
+            }
+        }
+        
     }
+    
     
 }
