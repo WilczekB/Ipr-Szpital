@@ -5,6 +5,7 @@
 package com.mycompany.szpital;
 
 import java.util.LinkedHashMap;
+import java.util.Map;
 
 /**
  *
@@ -12,14 +13,32 @@ import java.util.LinkedHashMap;
  */
 public class RepoPowiadomien {
     
-    private LinkedHashMap<Integer, Powiadomienia> alerts;
+    private LinkedHashMap<Integer, Powiadomienie> alerts;
     
-    public RepoPowiadomien(LinkedHashMap<Integer, Powiadomienia> alerts){
+    public RepoPowiadomien(LinkedHashMap<Integer, Powiadomienie> alerts){
         
         this.alerts = alerts;
         
     }
     
+    public void addAlert(Powiadomienie alert){
+        
+        Integer key = alerts.size() + 1;
+        alerts.put(key, alert);
+        
+    }
     
+    public void deleteAlert(Powiadomienie alert){
+    
+        for(Map.Entry<Integer, Powiadomienie> entry: alerts.entrySet()){
+        
+            if(entry.getValue().getId() == alert.getId())
+            {
+                alerts.remove(entry.getKey());
+            }
+        
+        }
+        
+    }
     
 }

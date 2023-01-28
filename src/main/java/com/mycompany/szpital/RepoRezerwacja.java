@@ -38,10 +38,8 @@ public class RepoRezerwacja {
         LocalDate endDate = LocalDate.parse(data[5]);
         LocalTime endTime = LocalTime.parse(data[6]);
         int number = Integer.parseInt(data[7]);
-        String type = data[8];
-        Sala room = new Sala(number, type);
         
-        return new Rezerwacja(id, name, surname, startDate, endDate, startTime, endTime, room);
+        return new Rezerwacja(id, name, surname, startDate, endDate, startTime, endTime, number);
     
     }
     

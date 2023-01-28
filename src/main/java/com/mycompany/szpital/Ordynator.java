@@ -27,9 +27,9 @@ public class Ordynator extends ZarzadzajacySalami {
         this.sort = sort;
     }
     
-    public void addReservation(int id, Sala room, String name, String surname, LocalDate startDate, LocalDate endDate, LocalTime startTime, LocalTime endTime){
+    public void addReservation(int id, int number, String name, String surname, LocalDate startDate, LocalDate endDate, LocalTime startTime, LocalTime endTime){
         
-        Rezerwacja reservation = new Rezerwacja(id, name, surname, startDate, endDate, startTime, endTime, room);
+        Rezerwacja reservation = new Rezerwacja(id, name, surname, startDate, endDate, startTime, endTime, number);
         Integer key = reservations.size();
         reservations.put(key, reservation);
         
