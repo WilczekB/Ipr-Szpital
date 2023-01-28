@@ -26,6 +26,10 @@ public class RepoSprzet {
     
     }
     
+    public RepoSprzet(){
+        this.readFromDataBase("Sprzet.txt");
+    }
+    
     private static Sprzet createDevice(String[] data){
         
         String name = data[0];

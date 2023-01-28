@@ -21,9 +21,9 @@ public class RepoSal {
     
     private LinkedHashMap<Integer, Sala> rooms;
     
-    public RepoSal(LinkedHashMap<Integer, Sala> rooms)
+    public RepoSal()
     {
-        this.rooms = rooms;
+        this.readFromDataBase("Sale.txt");
     }
     
     private static Sala createRoom(String[] data){

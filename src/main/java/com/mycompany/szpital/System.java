@@ -14,12 +14,24 @@ import java.io.*;
  */
 public class System {
     
-    private LinkedHashMap<Integer, Lekarz> doctors;
-    private LinkedHashMap<Integer, Ordynator> headPhysicians;
-    private LinkedHashMap<Integer, AdministratorTechniczny> admins;
-    private LinkedHashMap<Integer, Rezerwacja> reservations;
-    private LinkedHashMap<Integer, Sprzet> equipment;
+    private RepoUzytkownik users;
+    private RepoRezerwacja reservations;
+    private RepoSprzet equipments;
+    private RepoSal rooms;
+    
+    public void System(){
+        this.users = new RepoUzytkownik();
+        this.reservations = new RepoRezerwacja();
+        this.equipments = new RepoSprzet();
+        this.rooms = new RepoSal();
+    }
       
+    public Uzytkownik checkLogin(String log, String pass){
+        Uzytkownik user;
+        
+        user = users.getLogin(log, pass);
+        return user;
+    }
     
     /**
      * @param args the command line arguments
@@ -54,5 +66,9 @@ public class System {
                 new EkranStartowy().setVisible(true);
             }
         });
+    }
+
+    Uzytkownik checkLogin(String login, String password) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }
