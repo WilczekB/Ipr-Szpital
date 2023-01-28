@@ -173,5 +173,36 @@ public class RepoUzytkownik {
         
     }
     
-    
+    public Uzytkownik getLogin(String login, String password){
+        
+        for(Map.Entry<Integer, Lekarz> entry: doctors.entrySet()){
+            
+            if((entry.getValue().getLogin().equals(login)) && (entry.getValue().getPassword().equals(password)))
+            {
+                return doctors.get(entry.getKey());
+            }
+            
+        }
+        
+        for(Map.Entry<Integer, Ordynator> entry: headPhysicians.entrySet()){
+            
+            if((entry.getValue().getLogin().equals(login)) && (entry.getValue().getPassword().equals(password)))
+            {
+                return headPhysicians.get(entry.getKey());
+            }
+            
+        }
+        
+        for(Map.Entry<Integer, AdministratorTechniczny> entry: admins.entrySet()){
+            
+            
+            if((entry.getValue().getLogin().equals(login)) && (entry.getValue().getPassword().equals(password)))
+            {
+                return admins.get(entry.getKey());
+            }
+            
+        }
+        
+        return null;
+    }
 }
