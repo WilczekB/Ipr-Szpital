@@ -23,7 +23,7 @@ public class RepoRezerwacja {
     
     private LinkedHashMap<Integer, Rezerwacja> reservations;
     
-    public RepoRezerwacja(LinkedHashMap<Integer, Rezerwacja> reservations)
+    public RepoRezerwacja()
     {
         this.reservations = reservations;
     }
