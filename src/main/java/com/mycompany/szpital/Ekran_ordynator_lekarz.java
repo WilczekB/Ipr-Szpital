@@ -62,6 +62,7 @@ public class Ekran_ordynator_lekarz extends javax.swing.JFrame {
         jButtonAddReservation = new javax.swing.JButton();
         jLabelCategory = new javax.swing.JLabel();
         CategoryComboBox = new javax.swing.JComboBox<>();
+        jButtonDeleteReseravtion = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -139,6 +140,14 @@ public class Ekran_ordynator_lekarz extends javax.swing.JFrame {
 
         CategoryComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
+        jButtonDeleteReseravtion.setText("Usuń rezerwację");
+        jButtonDeleteReseravtion.setToolTipText("");
+        jButtonDeleteReseravtion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonDeleteReseravtionActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -175,7 +184,8 @@ public class Ekran_ordynator_lekarz extends javax.swing.JFrame {
                                                 .addComponent(jButtonEqInReservation, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
                                                 .addComponent(jButtonChangeRoomType, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addComponent(jButtonAlerts, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jButtonAddReservation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                                                .addComponent(jButtonAddReservation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(jButtonDeleteReseravtion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE))))
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(jLabelCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(18, 18, 18)
@@ -211,8 +221,10 @@ public class Ekran_ordynator_lekarz extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jButtonEqInReservation)
                         .addGap(18, 18, 18)
+                        .addComponent(jButtonDeleteReseravtion)
+                        .addGap(18, 18, 18)
                         .addComponent(jButtonChangeRoomType, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 65, Short.MAX_VALUE)))
+                        .addGap(0, 24, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButtonLogOut)
                 .addContainerGap())
@@ -261,6 +273,10 @@ public class Ekran_ordynator_lekarz extends javax.swing.JFrame {
         mainGui.logOut();
     }//GEN-LAST:event_jButtonLogOutActionPerformed
 
+    private void jButtonDeleteReseravtionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteReseravtionActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonDeleteReseravtionActionPerformed
+
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -268,6 +284,7 @@ public class Ekran_ordynator_lekarz extends javax.swing.JFrame {
     private javax.swing.JButton jButtonAddReservation;
     private javax.swing.JButton jButtonAlerts;
     private javax.swing.JButton jButtonChangeRoomType;
+    private javax.swing.JButton jButtonDeleteReseravtion;
     private javax.swing.JButton jButtonEqInReservation;
     private javax.swing.JButton jButtonLogOut;
     private javax.swing.JButton jButtonSearch;
