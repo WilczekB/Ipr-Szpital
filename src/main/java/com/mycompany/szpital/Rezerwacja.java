@@ -7,6 +7,7 @@ package com.mycompany.szpital;
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.util.LinkedHashMap;
+import java.util.Map;
 /**
  *
  * @author Bartek
@@ -20,8 +21,9 @@ public class Rezerwacja {
     private Sala room;
     private LinkedHashMap<Integer, Sprzet> equipment;
     private Uzytkownik user;
+    private RepoSal repoSal;
 
-    public Rezerwacja(int id,String name,String surname,LocalDate beginningDate, LocalDate endingDate, LocalTime beginningHour, LocalTime endingHour, Sala room) {
+    public Rezerwacja(int id,String name,String surname,LocalDate beginningDate, LocalDate endingDate, LocalTime beginningHour, LocalTime endingHour, int number) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -29,7 +31,7 @@ public class Rezerwacja {
         this.endingDate = endingDate;
         this.beginningHour = beginningHour;
         this.endingHour = endingHour;
-        this.room = room;
+        this.room = repoSal.searchForRoom(number);
     }
 
     public String getName() {
@@ -101,8 +103,7 @@ public class Rezerwacja {
     public void setUser(Uzytkownik user) {
         this.user = user;
     }
-    
-    
+        
     
     public void addDeviceToEquipment(Sprzet device){
     
@@ -111,6 +112,18 @@ public class Rezerwacja {
         
     }
     
+    public void removeDeviceFromEquipment(Sprzet device){
+        
+        for(Map.Entry<Integer, Sprzet> entry: equipment.entrySet()){
+            
+            if(device.getId() == entry.getValue().getId())
+            {
+                equipment.remove(entry.getKey());
+            }
+            
+        }
+        
+    }
     
     
 }
