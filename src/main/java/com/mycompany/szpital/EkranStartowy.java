@@ -10,12 +10,12 @@ package com.mycompany.szpital;
  */
 public class EkranStartowy extends javax.swing.JFrame {
 
-    private System sys;
+    private Szpital sys;
     private Ekran_admin_tech adminMainGui;
     private Ekran_ordynator_lekarz docotrMainGui;
     
     public EkranStartowy() {
-        this.sys = new System();
+        this.sys = new Szpital();
         initComponents();
     }
     
