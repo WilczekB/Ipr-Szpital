@@ -1,0 +1,6 @@
+1    respirator    wsparcie_oddechu    wolny    tak
+2    respirator    wsparcie_oddechu    wolny    tak
+3    skalpel    chirurgiczny    wolny    tak
+4    skalpel    chirurgiczny    wolny    tak
+5    skalpel    chirurgiczny    wolny    tak
+6    EKG    diagnostyczny    wolny    tak 
