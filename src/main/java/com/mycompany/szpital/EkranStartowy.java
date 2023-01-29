@@ -40,9 +40,9 @@ public class EkranStartowy extends javax.swing.JFrame {
             else if("ordynator".equals(user.getSort()) || "lekarz".equals(user.getSort())){
                 docotrMainGui = new Ekran_ordynator_lekarz(this, user);
             }
+            this.setVisible(false);
         }
         
-        this.setVisible(false);
         jPasswordField.setText("");
         jLoginField.setText("");
     }

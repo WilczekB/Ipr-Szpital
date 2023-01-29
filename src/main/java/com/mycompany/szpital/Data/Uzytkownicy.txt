@@ -17,7 +17,7 @@ Tomasz    Skiba    664324455    tomaszskiba@poludniowy.pl    mamproblemZalkohole
 Krzysztof    Skiba    557093128    krzysztofskiba@poludniowy.pl    profesjonalizm889O    ordynator
 Agata    Kulesza    823573856    agatakulesza@poludniowy.pl    zmieniamprofesje99    administrator
 Amelia    Rozporek    688334000    ameliarozporek@poludniowy.pl    czujesiesamotna45    lekarz
-Robert    Rozmus    454565659    robertrozmus@poludniowy.pl	jakies34hasloOSTRO    lekarz
+Robert    Rozmus    454565659    robertrozmus@poludniowy.pl    jakies34hasloOSTRO    lekarz
 Bartosz    Milczek    543843234    bartoszmilczek@poludniowy.pl    leczeSiePsychicznie11    lekarz
 Robert    Kubica    743123876    robertkubica@poludniowy.pl    wygranaWKanadzie2008    administrator
 Julia    Moczydlo    678432971    juliamoczydlo@poludniowy.pl    pracujeWSzpitalu607    lekarz
@@ -29,6 +29,3 @@ Olga    Szlachta    790608345    olgaszlachta@poludniowy.pl    polskaSzlachta141
 Magnus    Dudkiewicz    808909101    magnusdudkiewicz@poludniowy.pl    salonOptyczny87    lekarz
 Olgierd    Mlynarczyk    664875021    olgierdmlynarczyk@poludniowy.pl    fcPorto1910    lekarz
 Michal    Staniszewski    790580032    michalstaniszewski@poludniowy.pl    maszynowaWWA5    lekarz
-Honorata    Skarbek    809904567    honorataskarbek@poludniowy.pl	profesorMiodek    lekarz
-Danuta    Kalas    909345167    danutakalas@poludniowy.pl    danuskamamuska96    administrator
-    

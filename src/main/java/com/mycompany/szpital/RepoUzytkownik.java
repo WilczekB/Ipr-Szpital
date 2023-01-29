@@ -84,6 +84,8 @@ public class RepoUzytkownik {
                 
                 values = line.split("    ");
                 
+                System.out.print(values[1] + " ");
+                
                 switch(values[5]){
                     case "lekarz":
                         
@@ -108,9 +110,9 @@ public class RepoUzytkownik {
                         break;
                 }
                 
-                br.close();
+                
             }
-            
+            br.close(); 
         } catch (FileNotFoundException e){
             e.printStackTrace();
         } catch (IOException e){

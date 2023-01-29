@@ -23,7 +23,6 @@ public class Ekran_ordynator_lekarz extends javax.swing.JFrame {
     private SprzetRezerwacje screenEqReservation;
     
     public Ekran_ordynator_lekarz(EkranStartowy gui, Uzytkownik user) {
-        initComponents();
         this.mainGui = gui;
         this.doctor = user;
         
@@ -31,6 +30,7 @@ public class Ekran_ordynator_lekarz extends javax.swing.JFrame {
         this.screenAlerts = new Powiadomienia(this);
         this.screenRoomType = new ZastosowanieSal(this);
         this.screenEqReservation = new SprzetRezerwacje(this);
+        initComponents();
     }
 
     //Funkcja aktualizująca i włączająca ekran 
