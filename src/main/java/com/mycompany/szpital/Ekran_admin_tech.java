@@ -25,7 +25,7 @@ public class Ekran_admin_tech extends javax.swing.JFrame {
         addEqGui = new DodawanieSprzetu(this, repoEquip);
         changEqStatus = new ZarzadzanieStatusemSprzetu(this);
         initComponents();
-        openScreen();
+        this.openScreen();
     }
     
     //Funkcja odpowiadająca za odświeżenie ekranu(listy) i jego włączenie
@@ -55,7 +55,7 @@ public class Ekran_admin_tech extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabelScreenName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabelScreenName.setText("Zalogowano jako administrator techniczny "
+        jLabelScreenName.setText("Zalogowano jako administrator techniczny"
             + admin.getName() + " " + admin.getSurname());
 
         jButtonAddEq.setText("Dodawanie sprzętu");

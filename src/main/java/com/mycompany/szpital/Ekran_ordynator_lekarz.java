@@ -31,7 +31,7 @@ public class Ekran_ordynator_lekarz extends javax.swing.JFrame {
         this.screenRoomType = new ZastosowanieSal(this);
         this.screenEqReservation = new SprzetRezerwacje(this);
         initComponents();
-        this.setVisible(true);
+        this.openScreen();
     }
 
     //Funkcja aktualizująca i włączająca ekran 

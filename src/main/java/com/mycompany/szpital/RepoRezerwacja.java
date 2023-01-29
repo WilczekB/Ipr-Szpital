@@ -12,6 +12,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -25,7 +26,8 @@ public class RepoRezerwacja {
     
     public RepoRezerwacja()
     {
-        this.reservations = reservations;
+        this.reservations = new LinkedHashMap<Integer, Rezerwacja>();
+        this.readFromDataBase("./src/main/java/com/mycompany/szpital/Data/Rezerwacje.txt");
     }
     
     private static Rezerwacja createReservation(String[] data){
@@ -33,10 +35,16 @@ public class RepoRezerwacja {
         int id = Integer.parseInt(data[0]);
         String name = data[1];
         String surname = data[2];
-        LocalDate startDate = LocalDate.parse(data[3]);
-        LocalTime startTime = LocalTime.parse(data[4]);
-        LocalDate endDate = LocalDate.parse(data[5]);
-        LocalTime endTime = LocalTime.parse(data[6]);
+        
+        String dateString = "2022-04-05";
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        DateTimeFormatter formatter1 = DateTimeFormatter.ofPattern("HH:mm");
+        
+        
+        LocalDate startDate = LocalDate.parse(data[3], formatter);
+        LocalTime startTime = LocalTime.parse(data[5], formatter1);
+        LocalDate endDate = LocalDate.parse(data[4], formatter);
+        LocalTime endTime = LocalTime.parse(data[6], formatter1);
         int number = Integer.parseInt(data[7]);
         
         return new Rezerwacja(id, name, surname, startDate, endDate, startTime, endTime, number);

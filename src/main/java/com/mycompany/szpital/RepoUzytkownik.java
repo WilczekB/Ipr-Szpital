@@ -84,7 +84,6 @@ public class RepoUzytkownik {
                 
                 values = line.split("    ");
                 
-                
                 switch(values[5]){
                     case "lekarz":
                         
