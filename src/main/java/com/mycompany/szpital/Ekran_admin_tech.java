@@ -165,7 +165,7 @@ public class Ekran_admin_tech extends javax.swing.JFrame {
         model.update();
         
     }
-
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonAddEq;

@@ -4,7 +4,7 @@ Albert    Duszak    708345111    albertduszak@poludniowy.pl    pozdrawiamsoltysa
 Pawel    Czekierda    555609444    pawelczekierda@poludniowy.pl    powaznehaslo123    lekarz
 Ryszard    Mila    888999666    ryszardmila@poludniowy.pl    zegarmistrz89    administrator
 Felipe    Santos    463895112    felipesantos@poludniowy.pl    nowynabytek43    lekarz
-Michal    Kijowski    767323909    michalkijowski@poludniowy.pl    ruskijowska2020    administrator
+Michal    Kijowski    767323909    admin    admin    administrator
 Cezary    Kulesza    666444555    cezarykulesza@poludniowy.pl    mistrzprzemowy32Pl    ordynator
 Marta    Kroplowka    567894234    martakroplowka@poludniowy.pl    niepodajekroplowki*    lekarz
 Agata    Lipowska    543432978    agatalipowska@poludniowy.pl    niemalipy324goha8    lekarz

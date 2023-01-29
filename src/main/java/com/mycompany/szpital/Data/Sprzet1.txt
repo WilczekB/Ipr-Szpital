@@ -4,6 +4,4 @@
 3    skalpel    chirurgiczny    wolny    false
 4    skalpel    chirurgiczny    wolny    false
 5    EKG    diagnostyczny    wolny    false
-6    cipa    chujowy    wolny    false
-7    chuj    oddychanie    Wolny    false
-9    bartek    oddychanie    wolny    false
+7    cipa    oddychanie    Wolny    false

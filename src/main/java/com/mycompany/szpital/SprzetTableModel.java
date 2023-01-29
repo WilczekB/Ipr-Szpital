@@ -34,17 +34,33 @@ public class SprzetTableModel extends AbstractTableModel{
     
     @Override
     public Object getValueAt(int rowIndex, int columnIndex){
-        
-        Sprzet equip = equipment.get(rowIndex);
-        switch(columnIndex){
-        
-            case 0: return equip.getId();
-            case 1: return equip.getCategory();
-            case 2: return equip.getName();
-            case 3: return equip.isItDisinfected();
-            case 4: return equip.getAlocation();
-            default: return null;
-        
+
+        Integer key = equipment.keySet().toArray(new Integer[equipment.size()])[rowIndex];
+        Sprzet equip = equipment.get(key);
+
+        try {
+            if (equip != null) {
+                switch (columnIndex) {
+                    case 0:
+                        return equip.getId();
+                    case 1:
+                        return equip.getCategory();
+                    case 2:
+                        return equip.getName();
+                    case 3:
+                        return equip.isItDisinfected();
+                    case 4:
+                        return equip.getAlocation();
+                    default:
+                        throw new IllegalArgumentException("Nieznana kolumna: " + columnIndex);
+                }
+            } else {
+                throw new NullPointerException("Sprzęt jest nullem dla wiersza " + rowIndex + " i kolumny " + columnIndex);
+            }
+        } catch (Exception ex) {
+            System.out.println("Wystąpił wyjątek:");
+            ex.printStackTrace();
+            return null;
         }
     }
     
@@ -53,9 +69,10 @@ public class SprzetTableModel extends AbstractTableModel{
         return columns[col];
     }
     
+    
     public void update(){
         
-        this.equipment = equipment; 
-        System.out.println(this.equipment.size());
+        fireTableDataChanged(); 
+        
     }
 }
