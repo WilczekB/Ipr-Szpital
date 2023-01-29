@@ -4,6 +4,8 @@
  */
 package com.mycompany.szpital;
 
+import javax.swing.JTable;
+
 /**
  *
  * @author Lenovo
@@ -14,19 +16,24 @@ public class Ekran_admin_tech extends javax.swing.JFrame {
     private DodawanieSprzetu addEqGui;
     private ZarzadzanieStatusemSprzetu changEqStatus;
     private Uzytkownik admin;
+    private RepoSprzet repoEquip;
     
-    public Ekran_admin_tech(EkranStartowy gui, Uzytkownik user) {
+    public Ekran_admin_tech(EkranStartowy gui, Uzytkownik user, RepoSprzet repo) {
         mainGui = gui;
         admin = user;
-        addEqGui = new DodawanieSprzetu(this);
+        repoEquip = repo;
+        addEqGui = new DodawanieSprzetu(this, repoEquip);
         changEqStatus = new ZarzadzanieStatusemSprzetu(this);
         initComponents();
+        openScreen();
     }
     
     //Funkcja odpowiadająca za odświeżenie ekranu(listy) i jego włączenie
     public void openScreen(){
         
+        this.update();
         this.setVisible(true);
+        
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -48,7 +55,7 @@ public class Ekran_admin_tech extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabelScreenName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabelScreenName.setText("Zalogowano jako administrator techniczny"
+        jLabelScreenName.setText("Zalogowano jako administrator techniczny "
             + admin.getName() + " " + admin.getSurname());
 
         jButtonAddEq.setText("Dodawanie sprzętu");
@@ -79,17 +86,7 @@ public class Ekran_admin_tech extends javax.swing.JFrame {
             }
         });
 
-        jTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "Numer ID", "Kategoria", "Nazwa", "Czy zdezynfekowano ", "Przydział"
-            }
-        ));
+        jTable.setModel(new SprzetTableModel(repoEquip.getEquipment()));
         jScrollPane3.setViewportView(jTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -162,6 +159,12 @@ public class Ekran_admin_tech extends javax.swing.JFrame {
         mainGui.logOut();
     }//GEN-LAST:event_jButtonLogOutActionPerformed
 
+    private void update(){
+        
+        SprzetTableModel model = (SprzetTableModel) jTable.getModel();
+        model.update();
+        
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -19,7 +19,7 @@ public class Szpital {
     public Szpital(){
         this.users = new RepoUzytkownik();
         //this.reservations = new RepoRezerwacja();
-        //this.equipments = new RepoSprzet();
+        this.equipments = new RepoSprzet();
         //this.rooms = new RepoSal();
     }
       
@@ -29,6 +29,16 @@ public class Szpital {
         user = this.users.getLogin(log, pass);
         return user;
     }
+
+    public RepoUzytkownik getUsers() {
+        return users;
+    }
+
+    public RepoSprzet getEquipments() {
+        return equipments;
+    }
+    
+    
     
     /**
      * @param args the command line arguments

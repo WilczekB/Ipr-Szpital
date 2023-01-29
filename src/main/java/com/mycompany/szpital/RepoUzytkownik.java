@@ -84,7 +84,6 @@ public class RepoUzytkownik {
                 
                 values = line.split("    ");
                 
-                System.out.print(values[1] + " ");
                 
                 switch(values[5]){
                     case "lekarz":

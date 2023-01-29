@@ -18,25 +18,31 @@ import java.util.Map;
  */
 public class RepoSprzet {
     
-    private LinkedHashMap<Integer, Sprzet> equipment;
+    private LinkedHashMap<Integer, Sprzet> equipment = new LinkedHashMap<Integer, Sprzet>();
     
     public RepoSprzet(LinkedHashMap<Integer, Sprzet> equipment){
     
         this.equipment = equipment;
     
     }
+
+    public LinkedHashMap<Integer, Sprzet> getEquipment() {
+        return equipment;
+    }
+    
+    
     
     public RepoSprzet(){
-        this.readFromDataBase("Data/Sprzet.txt");
+        this.readFromDataBase("./src/main/java/com/mycompany/szpital/Data/Sprzet.txt");
     }
     
     private static Sprzet createDevice(String[] data){
         
-        String name = data[0];
-        String category = data[1];
-        int id = Integer.parseInt(data[2]);
-        boolean isDisinfected = Boolean.parseBoolean(data[3]);
-        String alocation = data[4];
+        String name = data[1];
+        String category = data[2];
+        int id = Integer.parseInt(data[0]);
+        boolean isDisinfected = Boolean.parseBoolean(data[4]);
+        String alocation = data[3];
         
         return new Sprzet(name, category, alocation, id, isDisinfected);
     }
@@ -101,6 +107,7 @@ public class RepoSprzet {
             while((line = br.readLine()) != null){
                 
                 values = line.split("    ");
+                System.out.println(values[1] + " ");
                 Sprzet eq = createDevice(values);
                 equipment.put(key,eq);
                 key++;
@@ -150,10 +157,10 @@ public class RepoSprzet {
     
     }
     
-    public void addDevice(String name, int id, String category, String alocation, boolean isDisinfected){
+    public void addDevice(String name, String category, String alocation, boolean isDisinfected){
     
-        Sprzet device = new Sprzet(name, category, alocation, id, isDisinfected);
         Integer key = equipment.size()+1;
+        Sprzet device = new Sprzet(name, category, alocation, key, isDisinfected);
         equipment.put(key, device);
     
     }

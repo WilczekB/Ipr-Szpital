@@ -35,7 +35,7 @@ public class EkranStartowy extends javax.swing.JFrame {
         }
         else{
             if("administrator".equals(user.getSort())){
-                adminMainGui = new Ekran_admin_tech(this, user);
+                adminMainGui = new Ekran_admin_tech(this, user, sys.getEquipments());
             }
             else if("ordynator".equals(user.getSort()) || "lekarz".equals(user.getSort())){
                 docotrMainGui = new Ekran_ordynator_lekarz(this, user);

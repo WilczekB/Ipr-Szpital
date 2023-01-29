@@ -53,4 +53,9 @@ public class SprzetTableModel extends AbstractTableModel{
         return columns[col];
     }
     
+    public void update(){
+        
+        this.equipment = equipment; 
+        System.out.println(this.equipment.size());
+    }
 }
