@@ -21,9 +21,9 @@ public class Rezerwacja {
     private Sala room;
     private LinkedHashMap<Integer, Sprzet> equipment;
     private Uzytkownik user;
-    private RepoSal repoSal;
 
-    public Rezerwacja(int id,String name,String surname,LocalDate beginningDate, LocalDate endingDate, LocalTime beginningHour, LocalTime endingHour, int number) {
+
+    public Rezerwacja(int id,String name,String surname,LocalDate beginningDate, LocalDate endingDate, LocalTime beginningHour, LocalTime endingHour, Sala r) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -31,7 +31,7 @@ public class Rezerwacja {
         this.endingDate = endingDate;
         this.beginningHour = beginningHour;
         this.endingHour = endingHour;
-        this.room = repoSal.searchForRoom(number);
+        this.room = r;
     }
 
     public String getName() {
