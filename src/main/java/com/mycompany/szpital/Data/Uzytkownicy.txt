@@ -11,7 +11,7 @@ Agata    Lipowska    543432978    agatalipowska@poludniowy.pl    niemalipy324goh
 Karolina    Kaszubska    654321676    karolinakaszubska@poludniowy.pl    jestemzMazowsza123    lekarz
 Angelika    Gozdowska    856734001    angelikagozdowska@poludniowy.pl    jestemsliczna$$$    administrator
 Mateusz    Chudzinski    345123876    mateuszchudzinski@poludniowy.pl    otyloscTochoroba&^    lekarz
-Andrzej    Rachuba    454323876    andrzejrachuba@poludniowy.pl    stracilemrachubeczasu    ordynator
+Andrzej    Rachuba    454323876    ordynator    ordynator    ordynator
 Pawel    Gawel    345900490    pawelgawel@poludniowy.pl    ktoredyNaZoliborzAAAA    lekarz
 Tomasz    Skiba    664324455    tomaszskiba@poludniowy.pl    mamproblemZalkoholemPOMOCY    lekarz
 Krzysztof    Skiba    557093128    krzysztofskiba@poludniowy.pl    profesjonalizm889O    ordynator

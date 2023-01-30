@@ -165,6 +165,7 @@ public class Ekran_admin_tech extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Prosze zaznaczyć tylko jedno urządzenie do usunięcia");
             }
         }
+        this.update();
         
     }//GEN-LAST:event_jButtonDeleteEqActionPerformed
 

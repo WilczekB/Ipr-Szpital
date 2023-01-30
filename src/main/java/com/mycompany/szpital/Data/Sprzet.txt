@@ -1,0 +1,5 @@
+0    respirator    oddychanie    wolny    false
+1    respirator    oddychanie    wolny    false
+2    skalpel    chirurgiczny    wolny    false
+3    skalpel    chirurgiczny    wolny    false
+5    USG    diagnostyczny    wolny    true
