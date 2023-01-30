@@ -32,7 +32,7 @@ public class RepoRezerwacja {
         this.rooms = r;
     }
     
-    private static Rezerwacja createReservation(String[] data){
+    private Rezerwacja createReservation(String[] data){
     
         int id = Integer.parseInt(data[0]);
         String name = data[1];
@@ -52,7 +52,7 @@ public class RepoRezerwacja {
         Sala room = null;
         room = this.rooms.searchForRoom(number);
         
-        return new Rezerwacja(id, name, surname, startDate, endDate, startTime, endTime, room);
+        return new Rezerwacja(id, name, surname, startDate, endDate, startTime, endTime, this.rooms.searchForRoom(number));
     
     }
 
