@@ -23,11 +23,13 @@ import java.util.Map;
 public class RepoRezerwacja {
     
     private LinkedHashMap<Integer, Rezerwacja> reservations;
+    private RepoSal rooms;
     
-    public RepoRezerwacja()
+    public RepoRezerwacja(RepoSal r)
     {
         this.reservations = new LinkedHashMap<Integer, Rezerwacja>();
         this.readFromDataBase("./src/main/java/com/mycompany/szpital/Data/Rezerwacje.txt");
+        this.rooms = r;
     }
     
     private static Rezerwacja createReservation(String[] data){
@@ -47,8 +49,15 @@ public class RepoRezerwacja {
         LocalTime endTime = LocalTime.parse(data[6], formatter1);
         int number = Integer.parseInt(data[7]);
         
-        return new Rezerwacja(id, name, surname, startDate, endDate, startTime, endTime, number);
+        Sala room = null;
+        room = this.rooms.searchForRoom(number);
+        
+        return new Rezerwacja(id, name, surname, startDate, endDate, startTime, endTime, room);
     
+    }
+
+    RepoRezerwacja(RepoSprzet equipments) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
     
     public Rezerwacja searchForReservation(String id){
