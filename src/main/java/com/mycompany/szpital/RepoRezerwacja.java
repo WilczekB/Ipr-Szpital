@@ -118,7 +118,6 @@ public class RepoRezerwacja {
         
         String[] values;
         String line="";
-        int key=0;
         
         try{
             BufferedReader br = new BufferedReader(new FileReader((path)));
@@ -127,8 +126,8 @@ public class RepoRezerwacja {
                 
                 values = line.split("    ");
                 Rezerwacja reservation = createReservation(values);
-                reservations.put(key, reservation);
-                key++;
+                //Id rezerwacji jest jej kluczem w Mapie
+                reservations.put(reservation.getId(), reservation);
                 
             }
             br.close();
@@ -155,4 +154,7 @@ public class RepoRezerwacja {
         return user;
     }
     
+    public void deleteReservation(){
+        
+    }
 }
