@@ -4,6 +4,7 @@
  */
 package com.mycompany.szpital;
 
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 
 /**
@@ -55,8 +56,8 @@ public class Ekran_admin_tech extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jLabelScreenName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        jLabelScreenName.setText("Zalogowano jako administrator techniczny"
-            + admin.getName() + " " + admin.getSurname());
+        jLabelScreenName.setText("Zalogowano jako administrator techniczny " +
+            " " + admin.getName() + " " + admin.getSurname());
 
         jButtonAddEq.setText("Dodawanie sprzętu");
         jButtonAddEq.addActionListener(new java.awt.event.ActionListener() {
@@ -87,6 +88,11 @@ public class Ekran_admin_tech extends javax.swing.JFrame {
         });
 
         jTable.setModel(new SprzetTableModel(repoEquip.getEquipment()));
+        jTable.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTableMouseClicked(evt);
+            }
+        });
         jScrollPane3.setViewportView(jTable);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -146,7 +152,19 @@ public class Ekran_admin_tech extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAddEqActionPerformed
 
     private void jButtonDeleteEqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteEqActionPerformed
-        // TODO add your handling code here:
+        SprzetTableModel model = (SprzetTableModel) jTable.getModel();
+        
+        if(jTable.getSelectedRowCount() == 1){
+        
+            repoEquip.deleteDevice((int) jTable.getValueAt(jTable.getSelectedRow(), 0));
+            
+        }else{
+            if(jTable.getRowCount() == 0){
+                JOptionPane.showMessageDialog(this, "Tablica jest pusta");
+            }else{
+                JOptionPane.showMessageDialog(this, "Prosze zaznaczyć tylko jedno urządzenie do usunięcia");
+            }
+        }
     }//GEN-LAST:event_jButtonDeleteEqActionPerformed
 
     private void jButtonChangeEqStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChangeEqStatusActionPerformed
@@ -155,9 +173,14 @@ public class Ekran_admin_tech extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonChangeEqStatusActionPerformed
 
     private void jButtonLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogOutActionPerformed
+        repoEquip.writeToDataBase("./src/main/java/com/mycompany/szpital/Data/Sprzet.txt");
         this.setVisible(false);
         mainGui.logOut();
     }//GEN-LAST:event_jButtonLogOutActionPerformed
+
+    private void jTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTableMouseClicked
+        int id = (int) jTable.getValueAt(jTable.getSelectedRow(), 0);
+    }//GEN-LAST:event_jTableMouseClicked
 
     private void update(){
         

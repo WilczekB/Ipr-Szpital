@@ -155,17 +155,18 @@ public class DodawanieSprzetu extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         
         String name = jTextField3.getText();
-        String category = kategoriaComboBox.getItemAt(0);
+        String category = kategoriaComboBox.getSelectedItem().toString();
         String alocation = "wolny";
-        boolean isDisinfected = false;
-        switch(disinfectionComboBox.getItemAt(0)){
-            case "Tak": isDisinfected = true;
-            case "Nie": isDisinfected = false;
-        }
-               
-        repoEquip.addDevice(name, category, alocation, isDisinfected);
-        //repoEquip.writeToDataBase("./src/main/java/com/mycompany/szpital/Data/Sprzet.txt");
+        boolean isDisinfected;
         
+        if(disinfectionComboBox.getSelectedItem().toString().equals("Tak")){
+            isDisinfected = true;
+        }else{
+            isDisinfected = false;
+        }
+        
+               
+        repoEquip.addDevice(name, category, alocation, isDisinfected);            
         JOptionPane.showMessageDialog(null, "Dadono sprzęt do magazynu!");
     }//GEN-LAST:event_jButton1ActionPerformed
 

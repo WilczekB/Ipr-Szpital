@@ -47,17 +47,17 @@ public class RepoSprzet {
         return new Sprzet(name, category, alocation, id, isDisinfected);
     }
     
-    public Sprzet searchForDevice(String id){
+    public Sprzet searchForDevice(int id){
     
-        Sprzet device = null;
+        
         for(Map.Entry<Integer, Sprzet> entry: equipment.entrySet())
         {
-            if(id.equals(entry.getValue().getId()))
+            if(id == entry.getValue().getId())
             {
-                device = entry.getValue();
+                return equipment.get(entry.getKey());
             }
         }
-        return device;
+        return null;
     
     }
     
@@ -107,7 +107,6 @@ public class RepoSprzet {
             while((line = br.readLine()) != null){
                 
                 values = line.split("    ");
-                System.out.println(values[1] + " ");
                 Sprzet eq = createDevice(values);
                 equipment.put(key,eq);
                 key++;
@@ -159,7 +158,7 @@ public class RepoSprzet {
     
     public void addDevice(String name, String category, String alocation, boolean isDisinfected){
     
-        Integer key = equipment.size()+1;
+        Integer key = equipment.size();
         Sprzet device = new Sprzet(name, category, alocation, key, isDisinfected);
         equipment.put(key, device);
     
@@ -167,13 +166,17 @@ public class RepoSprzet {
     
     public void deleteDevice(int id){
         
-        for(Map.Entry<Integer, Sprzet> entry: equipment.entrySet())
-        {
+        Integer key = null;
+        for(Map.Entry<Integer, Sprzet> entry : equipment.entrySet()){
+        
             if(entry.getValue().getId() == id)
             {
-                equipment.remove(entry.getKey());
+                key = entry.getKey();
             }
+        
         }
+        
+        equipment.remove(key);
         
     }
 }
