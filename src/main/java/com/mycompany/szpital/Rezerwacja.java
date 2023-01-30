@@ -4,8 +4,9 @@
  */
 package com.mycompany.szpital;
 
-import java.time.LocalDate;
+
 import java.time.LocalTime;
+import java.time.LocalDate;
 import java.util.LinkedHashMap;
 import java.util.Map;
 /**
@@ -22,7 +23,7 @@ public class Rezerwacja {
     private LinkedHashMap<Integer, Sprzet> equipment;
     private Uzytkownik user;
 
-    public Rezerwacja(int id,String name,String surname,LocalDate beginningDate, LocalDate endingDate, LocalTime beginningHour, LocalTime endingHour, Sala r) {
+    public Rezerwacja(int id,String name,String surname, LocalDate beginningDate, LocalDate endingDate, LocalTime beginningHour, LocalTime endingHour, Sala r) {
         this.id = id;
         this.name = name;
         this.surname = surname;

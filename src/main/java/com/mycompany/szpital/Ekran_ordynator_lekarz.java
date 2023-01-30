@@ -22,12 +22,13 @@ public class Ekran_ordynator_lekarz extends javax.swing.JFrame {
     private ZastosowanieSal screenRoomType;
     private SprzetRezerwacje screenEqReservation;
     private RepoRezerwacja reservations;
+    private RepoSal rooms;
     
-    public Ekran_ordynator_lekarz(EkranStartowy gui, Uzytkownik user, RepoRezerwacja res) {
+    public Ekran_ordynator_lekarz(EkranStartowy gui, Uzytkownik user, RepoRezerwacja res, RepoSal repoSal) {
         this.mainGui = gui;
         this.doctor = user;
         this.reservations = res;
-        
+        this.rooms = repoSal;
         this.screenAddReservation = new DodawanieRezerwacji(this);
         this.screenAlerts = new Powiadomienia(this);
         this.screenRoomType = new ZastosowanieSal(this);
@@ -245,7 +246,7 @@ public class Ekran_ordynator_lekarz extends javax.swing.JFrame {
     private void jButtonAddReservationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddReservationActionPerformed
         this.setVisible(false);
         
-        screenAddReservation.openScreen();
+        screenAddReservation.openScreen(this.rooms, this.reservations, this.doctor);
     }//GEN-LAST:event_jButtonAddReservationActionPerformed
 
     private void jButtonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchActionPerformed

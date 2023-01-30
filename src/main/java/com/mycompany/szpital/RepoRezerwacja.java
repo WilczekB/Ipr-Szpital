@@ -155,4 +155,12 @@ public class RepoRezerwacja {
         return user;
     }
     
+    public void addReservation(int id,String name,String surname,LocalDate beginningDate, LocalDate endingDate, LocalTime beginningHour, LocalTime endingHour, Sala r){
+        
+        Integer key = reservations.size()+1;
+        Rezerwacja reservation = new Rezerwacja(id, name, surname, beginningDate, endingDate, beginningHour, endingHour, r);
+        
+        reservations.put(key, reservation);
+    }
+    
 }

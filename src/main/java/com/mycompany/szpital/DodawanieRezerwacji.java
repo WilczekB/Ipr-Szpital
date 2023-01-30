@@ -4,6 +4,12 @@
  */
 package com.mycompany.szpital;
 
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.ZoneId;
+import java.util.Date;
+
 /**
  *
  * @author Lenovo
@@ -11,7 +17,10 @@ package com.mycompany.szpital;
 public class DodawanieRezerwacji extends javax.swing.JFrame {
 
     private Ekran_ordynator_lekarz doctorMainGui;
-    
+    private RepoSal repoRooms;
+    private RepoRezerwacja reservations;
+    private Uzytkownik user;
+            
     public DodawanieRezerwacji(Ekran_ordynator_lekarz screen) {
         this.doctorMainGui = screen;
         
@@ -19,9 +28,11 @@ public class DodawanieRezerwacji extends javax.swing.JFrame {
     }
 
     //Funkcja aktualizująca i włączająca ekran 
-    public void openScreen(){
+    public void openScreen(RepoSal repo, RepoRezerwacja repoReservations, Uzytkownik someUser){
         
-        
+        this.repoRooms = repo;
+        this.user = someUser;
+        this.reservations = repoReservations;
         this.setVisible(true);
     }
     /**
@@ -45,7 +56,7 @@ public class DodawanieRezerwacji extends javax.swing.JFrame {
         jLabelRoom = new javax.swing.JLabel();
         jComboStartHour = new javax.swing.JComboBox<>();
         jComboEndHour = new javax.swing.JComboBox<>();
-        jButtonReserve = new javax.swing.JButton();
+        jButtonAdd = new javax.swing.JButton();
         jLabelIdReservation = new javax.swing.JLabel();
         jTextFieldIDreservation = new javax.swing.JTextField();
 
@@ -82,7 +93,12 @@ public class DodawanieRezerwacji extends javax.swing.JFrame {
 
         jComboEndHour.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jButtonReserve.setText("Rezerwuj");
+        jButtonAdd.setText("Rezerwuj");
+        jButtonAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddActionPerformed(evt);
+            }
+        });
 
         jLabelIdReservation.setText("Wprowadź numer ID rezerwacji:");
 
@@ -140,7 +156,7 @@ public class DodawanieRezerwacji extends javax.swing.JFrame {
                 .addContainerGap())
             .addGroup(layout.createSequentialGroup()
                 .addGap(216, 216, 216)
-                .addComponent(jButtonReserve)
+                .addComponent(jButtonAdd)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -170,7 +186,7 @@ public class DodawanieRezerwacji extends javax.swing.JFrame {
                     .addComponent(jComboStartHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jComboEndHour, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(28, 28, 28)
-                .addComponent(jButtonReserve)
+                .addComponent(jButtonAdd)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonBack)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -193,10 +209,28 @@ public class DodawanieRezerwacji extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboRoomActionPerformed
 
+    private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
+        
+        ZoneId zoneId = ZoneId.of("Europe/Warsaw");
+
+        Instant instantStart = jDateStartChooser.getDate().toInstant();
+        Instant instantEnd = jEndDateChooser.getDate().toInstant();
+        
+        LocalDate startDate = instantStart.atZone(ZoneId.systemDefault()).toLocalDate();
+        LocalDate endDate = instantEnd.atZone(zoneId.systemDefault()).toLocalDate();
+        LocalTime startTime = (LocalTime) jComboStartHour.getSelectedItem();
+        LocalTime endTime = (LocalTime) jComboEndHour.getSelectedItem();
+        int id = this.reservations.getReservations().size()+1;
+        int number = (int) jComboRoom.getSelectedItem();
+        Sala room = this.repoRooms.searchForRoom(number);
+        
+        this.reservations.addReservation(id, this.user.getName() , this.user.getSurname(), startDate, endDate, startTime, endTime, room);
+    }//GEN-LAST:event_jButtonAddActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonAdd;
     private javax.swing.JButton jButtonBack;
-    private javax.swing.JButton jButtonReserve;
     private javax.swing.JComboBox<String> jComboEndHour;
     private javax.swing.JComboBox<String> jComboRoom;
     private javax.swing.JComboBox<String> jComboStartHour;

@@ -42,7 +42,9 @@ public class Szpital {
         return reservations;
     }
     
-    
+    public RepoSal getRooms(){
+        return rooms;
+    }
     
     /**
      * @param args the command line arguments
