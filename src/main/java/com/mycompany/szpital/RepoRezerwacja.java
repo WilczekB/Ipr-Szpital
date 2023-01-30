@@ -49,8 +49,8 @@ public class RepoRezerwacja {
         LocalTime endTime = LocalTime.parse(data[6], formatter1);
         int number = Integer.parseInt(data[7]);
         
-        Sala room = null;
-        room = this.rooms.searchForRoom(number);
+        
+        Sala room =  rooms.searchForRoom(number);
         
         return new Rezerwacja(id, name, surname, startDate, endDate, startTime, endTime, room);
     
