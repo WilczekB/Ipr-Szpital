@@ -50,14 +50,16 @@ public class RepoRezerwacja {
         LocalTime endTime = LocalTime.parse(data[6], formatter1);
         int number = Integer.parseInt(data[7]);
         
-        return new Rezerwacja(id, name, surname, startDate, endDate, startTime, endTime, number);
+        Sala room = rooms.searchForRoom(number);
+    
+        return new Rezerwacja(id, name, surname, startDate, endDate, startTime, endTime, room);
     
     }
-
+/*
     RepoRezerwacja(RepoSprzet equipments) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    
+  */  
     public Rezerwacja searchForReservation(String id){
     
         Rezerwacja reservation = null;
