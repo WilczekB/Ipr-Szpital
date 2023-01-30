@@ -178,7 +178,7 @@ public class ZarzadzanieStatusemSprzetu extends javax.swing.JFrame {
             isDisinfected = false;
         }
         
-        repoEquip.changeDeviceStatus(id, category, name, rootPaneCheckingEnabled);
+        repoEquip.changeDeviceStatus(id, category, name, isDisinfected);
         
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -197,6 +197,21 @@ public class ZarzadzanieStatusemSprzetu extends javax.swing.JFrame {
         jTextField4.setText(Integer.toString(this.id));
         Sprzet device = repoEquip.searchForDevice(this.id);
         jTextField3.setText(device.getName());
+        System.out.println(device.getCategory() + '\n');
+        switch(device.getCategory()){
+        
+            case "oddychanie": jComboBox3.setSelectedIndex(4);
+            case "chirurgiczny": jComboBox3.setSelectedIndex(3);
+            case "rehabilitacyjny": jComboBox3.setSelectedIndex(2);
+            case "diagnostyczny": jComboBox3.setSelectedIndex(1);
+            case "laboratoryjny": jComboBox3.setSelectedIndex(0);
+        
+        }
+        if(device.isItDisinfected() == true){
+            jComboBox4.setSelectedIndex(0);
+        }else{
+            jComboBox4.setSelectedIndex(1);
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

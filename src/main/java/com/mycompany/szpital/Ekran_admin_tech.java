@@ -171,8 +171,20 @@ public class Ekran_admin_tech extends javax.swing.JFrame {
 
     private void jButtonChangeEqStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChangeEqStatusActionPerformed
         this.setVisible(false);
+        if(jTable.getSelectedRowCount() == 1){
         int id = (int) jTable.getValueAt(jTable.getSelectedRow(), 0);
         changEqStatus.openScreen(id);
+        } else{
+            if(jTable.getRowCount() == 0){
+                JOptionPane.showMessageDialog(null, "Tablica jest pusta");
+                
+            }else{
+                JOptionPane.showMessageDialog(null, "Prosze zaznaczyć tylko jedno urządzenie do modyfikacji");
+                
+            }
+            this.setVisible(true);
+        }
+        
     }//GEN-LAST:event_jButtonChangeEqStatusActionPerformed
 
     private void jButtonLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogOutActionPerformed

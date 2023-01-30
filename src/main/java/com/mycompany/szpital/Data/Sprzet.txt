@@ -2,4 +2,14 @@
 1    respirator    oddychanie    wolny    false
 2    skalpel    chirurgiczny    wolny    false
 3    skalpel    chirurgiczny    wolny    false
-5    USG    diagnostyczny    wolny    true
+4    USG    diagnostyczny    wolny    true
+5    respirator    oddychanie    wolny    true
+6    respirator    oddychanie    wolny    true
+7    respirator    oddychanie    wolny    true
+8    respirator    oddychanie    wolny    true
+9    skalpel    chirurgiczny    wolny    true
+10    skalpel    chirurgiczny    wolny    true
+11    skalpel    chirurgiczny    wolny    true
+12    skalpel    chirurgiczny    wolny    true
+13    skalpel    chirurgiczny    wolny    false
+14    skalpel    chirurgiczny    wolny    true
