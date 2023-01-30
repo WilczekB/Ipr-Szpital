@@ -4,6 +4,8 @@
  */
 package com.mycompany.szpital;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Lenovo
@@ -31,7 +33,7 @@ public class EkranStartowy extends javax.swing.JFrame {
         Uzytkownik user = sys.checkLogin(login, password);
         
         if(user == null){
-            //Komiunikat chujowe logowwanie!!!
+            JOptionPane.showMessageDialog(this, "Nieprawidłowy login lub hasło. Spróbuj ponownie");
         }
         else{
             if("administrator".equals(user.getSort())){
