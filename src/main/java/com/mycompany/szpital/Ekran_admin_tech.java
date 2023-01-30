@@ -199,11 +199,9 @@ public class Ekran_admin_tech extends javax.swing.JFrame {
         int id = (int) jTable.getValueAt(jTable.getSelectedRow(), 0);
     }//GEN-LAST:event_jTableMouseClicked
 
-    private void update(){
-        
+    private void update(){ 
         SprzetTableModel model = (SprzetTableModel) jTable.getModel();
-        model.update();
-        
+        model.update();    
     }
     
 

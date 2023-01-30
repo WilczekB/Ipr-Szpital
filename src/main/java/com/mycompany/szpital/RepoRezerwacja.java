@@ -154,7 +154,7 @@ public class RepoRezerwacja {
         return user;
     }
     
-    public void deleteReservation(){
-        
+    public void deleteReservation(int key){
+        this.reservations.remove(key);
     }
 }
