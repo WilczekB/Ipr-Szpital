@@ -152,21 +152,23 @@ public class Ekran_admin_tech extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAddEqActionPerformed
 
     private void jButtonDeleteEqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteEqActionPerformed
-            
-        if(jTable.getSelectedRowCount() == 1){
         
-            repoEquip.deleteDevice((int) jTable.getValueAt(jTable.getSelectedRow(), 0));
-            this.update();
-            
-        }else{
-            if(jTable.getRowCount() == 0){
-                JOptionPane.showMessageDialog(this, "Tablica jest pusta");
-            }else{
-                JOptionPane.showMessageDialog(this, "Prosze zaznaczyć tylko jedno urządzenie do usunięcia");
-            }
-        }
-        this.update();
-        
+        int answear = JOptionPane.showConfirmDialog(this, "Na penwo chcesz usunąć wybrane urządzenie?", "Usuwanie sprzętu", JOptionPane.YES_NO_OPTION);
+        if(answear == 0){
+            if(jTable.getSelectedRowCount() == 1){
+
+                repoEquip.deleteDevice((int) jTable.getValueAt(jTable.getSelectedRow(), 0));
+                this.update();
+            } else{
+                    if(jTable.getRowCount() == 0){
+                    JOptionPane.showMessageDialog(this, "Tablica jest pusta");
+                }else{
+                    JOptionPane.showMessageDialog(this, "Prosze zaznaczyć tylko jedno urządzenie do usunięcia");
+                }
+                this.update();
+            }   
+        } 
+         
     }//GEN-LAST:event_jButtonDeleteEqActionPerformed
 
     private void jButtonChangeEqStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChangeEqStatusActionPerformed

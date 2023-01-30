@@ -8,7 +8,6 @@
 7    respirator    oddychanie    wolny    true
 8    respirator    oddychanie    wolny    true
 9    skalpel    chirurgiczny    wolny    true
-10    skalpel    chirurgiczny    wolny    true
 11    skalpel    chirurgiczny    wolny    true
 12    skalpel    chirurgiczny    wolny    true
 13    skalpel    chirurgiczny    wolny    false
