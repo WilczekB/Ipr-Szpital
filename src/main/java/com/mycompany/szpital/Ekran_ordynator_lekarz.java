@@ -21,10 +21,12 @@ public class Ekran_ordynator_lekarz extends javax.swing.JFrame {
     private Powiadomienia screenAlerts;
     private ZastosowanieSal screenRoomType;
     private SprzetRezerwacje screenEqReservation;
+    private RepoRezerwacja reservations;
     
-    public Ekran_ordynator_lekarz(EkranStartowy gui, Uzytkownik user) {
+    public Ekran_ordynator_lekarz(EkranStartowy gui, Uzytkownik user, RepoRezerwacja res) {
         this.mainGui = gui;
         this.doctor = user;
+        this.reservations = res;
         
         this.screenAddReservation = new DodawanieRezerwacji(this);
         this.screenAlerts = new Powiadomienia(this);
@@ -101,17 +103,8 @@ public class Ekran_ordynator_lekarz extends javax.swing.JFrame {
             }
         });
 
-        jTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
-            },
-            new String [] {
-                "ID rezerwacji", "Numer sali", "Typ sali", "Imię i nazwisko", "Data", "Godzina"
-            }
-        ));
+        jTable.setModel( new RezerwacjaTableModel(this.reservations.getReservations())
+        );
         jTable.setToolTipText("");
         jScrollPane3.setViewportView(jTable);
 
@@ -119,8 +112,6 @@ public class Ekran_ordynator_lekarz extends javax.swing.JFrame {
         jLabel2.setText("Rezerwacje");
 
         jLabel3.setText("Szukanie rezerwacji:");
-
-        jSearchText.setText("jTextField1");
 
         jButtonSearch.setText("Szukaj");
         jButtonSearch.addActionListener(new java.awt.event.ActionListener() {
@@ -163,29 +154,24 @@ public class Ekran_ordynator_lekarz extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addComponent(jLabel3)
-                                                    .addGap(0, 0, Short.MAX_VALUE))
-                                                .addGroup(layout.createSequentialGroup()
-                                                    .addGap(35, 35, 35)
-                                                    .addComponent(jSearchText, javax.swing.GroupLayout.DEFAULT_SIZE, 172, Short.MAX_VALUE)))
-                                            .addGap(18, 18, 18)
-                                            .addComponent(jButtonSearch))
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                            .addGap(14, 14, 14)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabelCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(CategoryComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(14, 14, 14)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel3)
                                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addGroup(layout.createSequentialGroup()
+                                                    .addComponent(jSearchText, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                    .addComponent(jButtonSearch))
                                                 .addComponent(jButtonEqInReservation, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)
                                                 .addComponent(jButtonChangeRoomType, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addComponent(jButtonAlerts, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                                 .addComponent(jButtonAddReservation, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jButtonDeleteReseravtion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE))))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabelCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(CategoryComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addComponent(jButtonDeleteReseravtion, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 283, Short.MAX_VALUE)))))
                                 .addGap(9, 9, 9)
                                 .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 575, Short.MAX_VALUE))
                             .addGroup(layout.createSequentialGroup()

@@ -32,6 +32,10 @@ public class RepoRezerwacja {
         this.readFromDataBase("./src/main/java/com/mycompany/szpital/Data/Rezerwacje.txt");
         this.rooms = r;
     }
+
+    public LinkedHashMap<Integer, Rezerwacja> getReservations() {
+        return reservations;
+    }
     
     private Rezerwacja createReservation(String[] data){
     

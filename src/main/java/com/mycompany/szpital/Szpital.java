@@ -37,6 +37,10 @@ public class Szpital {
     public RepoSprzet getEquipments() {
         return equipments;
     }
+
+    public RepoRezerwacja getReservations() {
+        return reservations;
+    }
     
     
     
