@@ -26,6 +26,11 @@ public class RepoSal {
         this.rooms = new LinkedHashMap<Integer, Sala>();
         this.readFromDataBase("./src/main/java/com/mycompany/szpital/Data/Sale.txt");
     }
+
+    public LinkedHashMap<Integer, Sala> getRooms() {
+        return rooms;
+    }
+    
     
     private static Sala createRoom(String[] data){
         
@@ -104,4 +109,5 @@ public class RepoSal {
         }
         
     }
+    
 }
