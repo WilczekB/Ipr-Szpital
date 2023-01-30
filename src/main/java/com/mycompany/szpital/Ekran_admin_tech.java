@@ -156,6 +156,7 @@ public class Ekran_admin_tech extends javax.swing.JFrame {
         if(jTable.getSelectedRowCount() == 1){
         
             repoEquip.deleteDevice((int) jTable.getValueAt(jTable.getSelectedRow(), 0));
+            this.update();
             
         }else{
             if(jTable.getRowCount() == 0){
@@ -164,6 +165,7 @@ public class Ekran_admin_tech extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Prosze zaznaczyć tylko jedno urządzenie do usunięcia");
             }
         }
+        
     }//GEN-LAST:event_jButtonDeleteEqActionPerformed
 
     private void jButtonChangeEqStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChangeEqStatusActionPerformed
