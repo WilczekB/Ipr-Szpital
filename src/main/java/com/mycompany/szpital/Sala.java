@@ -34,6 +34,4 @@ public class Sala {
         this.type = type;
     }
     
-    
-    
 }

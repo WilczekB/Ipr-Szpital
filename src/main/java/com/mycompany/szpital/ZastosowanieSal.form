@@ -58,10 +58,10 @@
               <Component id="jScrollPane3" min="-2" pref="263" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jComboBox1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jTextChooseRoom" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonChangeType" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonBack" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jComboBox1" alignment="1" min="-2" pref="23" max="-2" attributes="0"/>
               </Group>
               <EmptySpace pref="27" max="32767" attributes="0"/>
           </Group>
@@ -78,11 +78,8 @@
       <SubComponents>
         <Component class="javax.swing.JTable" name="jTable">
           <Properties>
-            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="2" rowCount="4">
-                <Column editable="true" title="Numer sali" type="java.lang.Object"/>
-                <Column editable="true" title="Typ sali" type="java.lang.Object"/>
-              </Table>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
+              <Connection code="new SalaTableModel(this.rooms.getRooms())&#xa;" type="code"/>
             </Property>
             <Property name="toolTipText" type="java.lang.String" value=""/>
           </Properties>
@@ -116,14 +113,25 @@
     <Component class="javax.swing.JComboBox" name="jComboBox1">
       <Properties>
         <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Item 1"/>
-            <StringItem index="1" value="Item 2"/>
-            <StringItem index="2" value="Item 3"/>
-            <StringItem index="3" value="Item 4"/>
+          <StringArray count="12">
+            <StringItem index="0" value="Operacyjna"/>
+            <StringItem index="1" value="Intensywnej_Terapii"/>
+            <StringItem index="2" value="Porodowa"/>
+            <StringItem index="3" value="Zabiegowa"/>
+            <StringItem index="4" value="Wypoczynkowa"/>
+            <StringItem index="5" value="Psychiatryczna"/>
+            <StringItem index="6" value="Rehabilitacyjna"/>
+            <StringItem index="7" value="Magazyn"/>
+            <StringItem index="8" value="Biuro"/>
+            <StringItem index="9" value="Gabinet_Lekarski"/>
+            <StringItem index="10" value="Gabinet_Pielegniarski"/>
+            <StringItem index="11" value=" "/>
           </StringArray>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jComboBox1ActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>

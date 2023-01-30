@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.mycompany.szpital;
-
+import javax.swing.JOptionPane;
 /**
  *
  * @author Lenovo
@@ -11,16 +11,18 @@ package com.mycompany.szpital;
 public class ZastosowanieSal extends javax.swing.JFrame {
 
     private Ekran_ordynator_lekarz doctorMainGui;
+    private RepoSal rooms;
     
-    public ZastosowanieSal(Ekran_ordynator_lekarz screen) {
-        initComponents();
+    public ZastosowanieSal(Ekran_ordynator_lekarz screen, RepoSal r) {
         this.doctorMainGui = screen;
+        this.rooms = r;
+        initComponents();
     }
 
     //Funkcja aktualizująca i włączająca ekran 
     public void openScreen(){
         
-        
+        this.update();
         this.setVisible(true);
     }
     /**
@@ -42,17 +44,8 @@ public class ZastosowanieSal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jTable.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null},
-                {null, null},
-                {null, null},
-                {null, null}
-            },
-            new String [] {
-                "Numer sali", "Typ sali"
-            }
-        ));
+        jTable.setModel(new SalaTableModel(this.rooms.getRooms())
+        );
         jTable.setToolTipText("");
         jScrollPane3.setViewportView(jTable);
 
@@ -73,7 +66,12 @@ public class ZastosowanieSal extends javax.swing.JFrame {
         jLabelScreenName.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         jLabelScreenName.setText("Zastosowanie sal");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Operacyjna", "Intensywnej_Terapii", "Porodowa", "Zabiegowa", "Wypoczynkowa", "Psychiatryczna", "Rehabilitacyjna", "Magazyn", "Biuro", "Gabinet_Lekarski", "Gabinet_Pielegniarski", " " }));
+        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBox1ActionPerformed(evt);
+            }
+        });
 
         jTextChooseRoom.setText("Wybierz nowy typ sali:");
 
@@ -110,10 +108,10 @@ public class ZastosowanieSal extends javax.swing.JFrame {
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jTextChooseRoom)
                     .addComponent(jButtonChangeType)
-                    .addComponent(jButtonBack))
+                    .addComponent(jButtonBack)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(27, Short.MAX_VALUE))
         );
 
@@ -127,9 +125,35 @@ public class ZastosowanieSal extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonBackActionPerformed
 
     private void jButtonChangeTypeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChangeTypeActionPerformed
-        // TODO add your handling code here:
+        int answear = JOptionPane.showConfirmDialog(this, "Na penwo chcesz edytować typ sali?", "Usuwanie sprzętu", JOptionPane.YES_NO_OPTION);
+        if(answear == 0){
+            if(jTable.getSelectedRowCount() == 1){
+
+                String type = jComboBox1.getSelectedItem().toString();
+                int key =(int) jTable.getValueAt(jTable.getSelectedRow(), 0);
+                
+                this.rooms.changeRoomType(type, key);
+                
+                this.update();
+            } else{
+                    if(jTable.getRowCount() == 0){
+                    JOptionPane.showMessageDialog(this, "Tablica jest pusta");
+                }else{
+                    JOptionPane.showMessageDialog(this, "Prosze zaznaczyć tylko jedno salę do ");
+                }
+                this.update();
+            }   
+        } 
     }//GEN-LAST:event_jButtonChangeTypeActionPerformed
 
+    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBox1ActionPerformed
+
+     private void update(){ 
+        SalaTableModel model = (SalaTableModel) jTable.getModel();
+        model.update();    
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonBack;
