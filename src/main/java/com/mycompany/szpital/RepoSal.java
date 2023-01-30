@@ -37,18 +37,16 @@ public class RepoSal {
     }
     
     public Sala searchForRoom(int number){
-    
-        Sala room = null;
         
         for(Map.Entry<Integer, Sala> entry: rooms.entrySet())
         {
             if(number == entry.getValue().getNumber())
             {
-                room = entry.getValue();
+                return rooms.get(entry.getKey());
             }
         }
-        
-        return room;
+        return null;
+      
     }
     
     public void writeToDataBase(String path){
