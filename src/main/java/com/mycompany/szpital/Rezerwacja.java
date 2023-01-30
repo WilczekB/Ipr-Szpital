@@ -91,9 +91,7 @@ public class Rezerwacja {
     }
     
     public Sala getRoom(){
-    
         return room;
-    
     }
 
     public Uzytkownik getUser() {
@@ -106,24 +104,17 @@ public class Rezerwacja {
         
     
     public void addDeviceToEquipment(Sprzet device){
-    
         Integer key = equipment.size()+1;
-        equipment.put(key, device);
-        
+        equipment.put(key, device);    
     }
     
     public void removeDeviceFromEquipment(Sprzet device){
-        
         for(Map.Entry<Integer, Sprzet> entry: equipment.entrySet()){
             
             if(device.getId() == entry.getValue().getId())
             {
                 equipment.remove(entry.getKey());
             }
-            
-        }
-        
+        }   
     }
-    
-    
 }

@@ -59,6 +59,11 @@ public class DodawanieRezerwacji extends javax.swing.JFrame {
         });
 
         jComboRoom.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Sala 1", "Sala 2", "Sala 3", "Sala 4", "Sala 5", "Sala 6", "Sala 7", "Sala 8", "Sala 9", "Sala 10", "Sala 11", "Sala 12" }));
+        jComboRoom.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboRoomActionPerformed(evt);
+            }
+        });
 
         jLabelDateStart.setText("Data rozpoczęcia:");
 
@@ -183,6 +188,10 @@ public class DodawanieRezerwacji extends javax.swing.JFrame {
         
         doctorMainGui.openScreen();
     }//GEN-LAST:event_jButtonBackActionPerformed
+
+    private void jComboRoomActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboRoomActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboRoomActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

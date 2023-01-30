@@ -18,9 +18,9 @@ public class Szpital {
     
     public Szpital(){
         this.users = new RepoUzytkownik();
-        //this.reservations = new RepoRezerwacja();
+        this.reservations = new RepoRezerwacja();
         this.equipments = new RepoSprzet();
-        //this.rooms = new RepoSal();
+        this.rooms = new RepoSal();
     }
       
     public Uzytkownik checkLogin(String log, String pass){

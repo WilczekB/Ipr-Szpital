@@ -23,7 +23,8 @@ public class RepoSal {
     
     public RepoSal()
     {
-        this.readFromDataBase("Data/Sale.txt");
+        this.rooms = new LinkedHashMap<Integer, Sala>();
+        this.readFromDataBase("./src/main/java/com/mycompany/szpital/Data/Sale.txt");
     }
     
     private static Sala createRoom(String[] data){
@@ -38,6 +39,7 @@ public class RepoSal {
     public Sala searchForRoom(int number){
     
         Sala room = null;
+        
         for(Map.Entry<Integer, Sala> entry: rooms.entrySet())
         {
             if(number == entry.getValue().getNumber())
