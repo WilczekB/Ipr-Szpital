@@ -35,6 +35,16 @@ public class RepoSal {
         return new Sala(number, type);
         
     }
+
+    public LinkedHashMap<Integer, Sala> getRooms() {
+        return rooms;
+    }
+    
+    public void changeRoomType(String type, int key){
+        this.rooms.get(key).setType(type);
+    }
+    
+    
     
     public Sala searchForRoom(int number){
         
@@ -82,7 +92,6 @@ public class RepoSal {
         
         String[] values;
         String line = "";
-        int key = 0;
         
         try{
             
@@ -92,8 +101,7 @@ public class RepoSal {
             {
                 values = line.split("    ");
                 Sala room = createRoom(values);
-                rooms.put(key, room);
-                key++;
+                rooms.put(room.getNumber(), room);
             }
             
             br.close();

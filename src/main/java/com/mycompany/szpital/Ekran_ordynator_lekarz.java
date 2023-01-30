@@ -31,7 +31,7 @@ public class Ekran_ordynator_lekarz extends javax.swing.JFrame {
         this.rooms = repoSal;
         this.screenAddReservation = new DodawanieRezerwacji(this);
         this.screenAlerts = new Powiadomienia(this);
-        this.screenRoomType = new ZastosowanieSal(this);
+        this.screenRoomType = new ZastosowanieSal(this, repoSal);
         this.screenEqReservation = new SprzetRezerwacje(this);
         initComponents();
         this.openScreen();
@@ -39,9 +39,9 @@ public class Ekran_ordynator_lekarz extends javax.swing.JFrame {
 
     //Funkcja aktualizująca i włączająca ekran 
     public void openScreen(){
-        this.setVisible(true);
-        
         this.update();
+          
+        this.setVisible(true);
     }
     /**
      * This method is called from within the constructor to initialize the form.
