@@ -24,7 +24,7 @@ public class Ekran_admin_tech extends javax.swing.JFrame {
         admin = user;
         repoEquip = repo;
         addEqGui = new DodawanieSprzetu(this, repoEquip);
-        changEqStatus = new ZarzadzanieStatusemSprzetu(this);
+        changEqStatus = new ZarzadzanieStatusemSprzetu(this, repoEquip);
         initComponents();
         this.openScreen();
     }
@@ -152,8 +152,7 @@ public class Ekran_admin_tech extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAddEqActionPerformed
 
     private void jButtonDeleteEqActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteEqActionPerformed
-        SprzetTableModel model = (SprzetTableModel) jTable.getModel();
-        
+            
         if(jTable.getSelectedRowCount() == 1){
         
             repoEquip.deleteDevice((int) jTable.getValueAt(jTable.getSelectedRow(), 0));
@@ -169,7 +168,8 @@ public class Ekran_admin_tech extends javax.swing.JFrame {
 
     private void jButtonChangeEqStatusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonChangeEqStatusActionPerformed
         this.setVisible(false);
-        changEqStatus.openScreen();
+        int id = (int) jTable.getValueAt(jTable.getSelectedRow(), 0);
+        changEqStatus.openScreen(id);
     }//GEN-LAST:event_jButtonChangeEqStatusActionPerformed
 
     private void jButtonLogOutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLogOutActionPerformed

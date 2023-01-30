@@ -11,16 +11,20 @@ package com.mycompany.szpital;
 public class ZarzadzanieStatusemSprzetu extends javax.swing.JFrame {
 
     private Ekran_admin_tech adminMainGui;
+    private RepoSprzet repoEquip;
+    private int id;
     
-    public ZarzadzanieStatusemSprzetu(Ekran_admin_tech screen) {
+    public ZarzadzanieStatusemSprzetu(Ekran_admin_tech screen, RepoSprzet repo) {
         this.adminMainGui = screen;
+        this.repoEquip = repo;
         initComponents();
     }
 
     //Funkjca aktualizujaca liste i otwierajaca okno
-    public void openScreen(){
+    public void openScreen(int id){
         
-        
+        this.id = id;
+        System.out.println(this.id + "\n");
         this.setVisible(true);
     }
     /**
@@ -70,7 +74,8 @@ public class ZarzadzanieStatusemSprzetu extends javax.swing.JFrame {
             }
         });
 
-        jTextField4.setText("numer ID");
+        jTextField4.setEditable(false);
+        jTextField4.setText(Integer.toString(this.id));
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField4ActionPerformed(evt);
@@ -87,7 +92,7 @@ public class ZarzadzanieStatusemSprzetu extends javax.swing.JFrame {
 
         jLabel4.setText("Kategoria sprzętu:");
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Klasa I", "Klasa IIa", "Klasa IIb", "Klasa III" }));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "oddychanie", "chirurgiczny", "rehabilitacyjny", "diagnostyczny", "laboratoryjny" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
