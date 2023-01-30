@@ -122,7 +122,7 @@ public class RepoSprzet {
     
     }
     
-    public void changeDeviceStatus(Integer id, String category, String name, boolean isDisinfected, String alocation){
+    public void changeDeviceStatus(Integer id, String category, String name, boolean isDisinfected){
     
         Integer key = null;
         for(Map.Entry<Integer, Sprzet> entry: equipment.entrySet()){
@@ -147,11 +147,6 @@ public class RepoSprzet {
         if(isDisinfected!=equipment.get(key).isItDisinfected())
         {
             equipment.get(key).setIsDisinfected(isDisinfected);
-        }
-        
-        if(alocation!=equipment.get(key).getAlocation())
-        {
-            equipment.get(key).setAlocation(alocation);
         }
     
     }

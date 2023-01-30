@@ -25,6 +25,7 @@ public class ZarzadzanieStatusemSprzetu extends javax.swing.JFrame {
         
         this.id = id;
         System.out.println(this.id + "\n");
+        this.setData();
         this.setVisible(true);
     }
     /**
@@ -75,7 +76,6 @@ public class ZarzadzanieStatusemSprzetu extends javax.swing.JFrame {
         });
 
         jTextField4.setEditable(false);
-        jTextField4.setText(Integer.toString(this.id));
         jTextField4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField4ActionPerformed(evt);
@@ -164,15 +164,26 @@ public class ZarzadzanieStatusemSprzetu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_jTextField3ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        
+        String name = jTextField3.getText();
+        String category = jComboBox3.getSelectedItem().toString();
+        boolean isDisinfected;
+        if(jComboBox4.getSelectedItem().toString().equals("Tak")){
+            isDisinfected = true;
+        }else{
+            isDisinfected = false;
+        }
+        
+        repoEquip.changeDeviceStatus(id, category, name, rootPaneCheckingEnabled);
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_jTextField4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -181,6 +192,12 @@ public class ZarzadzanieStatusemSprzetu extends javax.swing.JFrame {
         adminMainGui.openScreen();
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void setData(){
+    
+        jTextField4.setText(Integer.toString(this.id));
+        Sprzet device = repoEquip.searchForDevice(this.id);
+        jTextField3.setText(device.getName());
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
