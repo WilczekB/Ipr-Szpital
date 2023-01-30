@@ -118,7 +118,6 @@ public class RepoRezerwacja {
         
         String[] values;
         String line="";
-        int key=0;
         
         try{
             BufferedReader br = new BufferedReader(new FileReader((path)));
@@ -127,8 +126,8 @@ public class RepoRezerwacja {
                 
                 values = line.split("    ");
                 Rezerwacja reservation = createReservation(values);
-                reservations.put(key, reservation);
-                key++;
+                //Id rezerwacji jest jej kluczem w Mapie
+                reservations.put(reservation.getId(), reservation);
                 
             }
             br.close();
@@ -155,6 +154,9 @@ public class RepoRezerwacja {
         return user;
     }
     
+    public void deleteReservation(int key){
+        this.reservations.remove(key);
+    }
     public void addReservation(int id,String name,String surname,LocalDate beginningDate, LocalDate endingDate, LocalTime beginningHour, LocalTime endingHour, Sala r){
         
         Integer key = reservations.size()+1;

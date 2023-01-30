@@ -5,7 +5,7 @@
 package com.mycompany.szpital;
 
 import java.util.LinkedHashMap;
-
+import javax.swing.JOptionPane;
 import javax.swing.RowFilter;
 import javax.swing.table.TableRowSorter;
 
@@ -39,9 +39,9 @@ public class Ekran_ordynator_lekarz extends javax.swing.JFrame {
 
     //Funkcja aktualizująca i włączająca ekran 
     public void openScreen(){
-        
-        
         this.setVisible(true);
+        
+        this.update();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -262,10 +262,29 @@ public class Ekran_ordynator_lekarz extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonLogOutActionPerformed
 
     private void jButtonDeleteReseravtionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteReseravtionActionPerformed
-        // TODO add your handling code here:
+                
+        int answear = JOptionPane.showConfirmDialog(this, "Na penwo chcesz usunąć wybrane urządzenie?", "Usuwanie sprzętu", JOptionPane.YES_NO_OPTION);
+        if(answear == 0){
+            if(jTable.getSelectedRowCount() == 1){
+
+                this.reservations.deleteReservation((int) jTable.getValueAt(jTable.getSelectedRow(), 0));
+            } else{
+                    if(jTable.getRowCount() == 0){
+                    JOptionPane.showMessageDialog(this, "Tablica jest pusta");
+                }else{
+                    JOptionPane.showMessageDialog(this, "Prosze zaznaczyć tylko jedno urządzenie do usunięcia");
+                }
+                
+            }   
+        } 
+        this.openScreen();
+         
     }//GEN-LAST:event_jButtonDeleteReseravtionActionPerformed
 
-
+    private void update(){
+        RezerwacjaTableModel model = (RezerwacjaTableModel) jTable.getModel();
+        model.update();    
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> CategoryComboBox;

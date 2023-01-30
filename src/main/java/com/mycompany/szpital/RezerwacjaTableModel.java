@@ -38,17 +38,28 @@ public class RezerwacjaTableModel extends AbstractTableModel{
     @Override
     public Object getValueAt(int rowIndex, int columnIndex){
     
-        Rezerwacja reservation = reservations.get(rowIndex);
+       Integer key = reservations.keySet().toArray(new Integer[reservations.size()])[rowIndex];
+        Rezerwacja reservation = reservations.get(key);
         
-        switch(columnIndex){
-            case 0: return reservation.getId();
-            case 1: return reservation.getRoom().getNumber();
-            case 2: return reservation.getRoom().getType();
-            case 3: return reservation.getName();
-            case 4: return reservation.getSurname();
-            case 5: return reservation.getEndingDate();
-            case 6: return reservation.getEndingHour();
-            default: return null;
+        try {
+            if (reservation != null) {
+                switch(columnIndex){
+                    case 0: return reservation.getId();
+                    case 1: return reservation.getRoom().getNumber();
+                    case 2: return reservation.getRoom().getType();
+                    case 3: return reservation.getName();
+                    case 4: return reservation.getSurname();
+                    case 5: return reservation.getEndingDate();
+                    case 6: return reservation.getEndingHour();
+                    default: return null;
+                }
+                } else {
+                throw new NullPointerException("Sprzęt jest nullem dla wiersza " + rowIndex + " i kolumny " + columnIndex);
+            }
+        } catch (Exception ex) {
+            System.out.println("Wystąpił wyjątek:");
+            ex.printStackTrace();
+            return null;
         }
     
     }
@@ -58,6 +69,10 @@ public class RezerwacjaTableModel extends AbstractTableModel{
     
         return columns[col];
     
+    }
+    
+    public void update(){
+        fireTableDataChanged();
     }
     
 }
