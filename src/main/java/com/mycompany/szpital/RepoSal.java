@@ -40,11 +40,7 @@ public class RepoSal {
         return new Sala(number, type);
         
     }
-
-    public LinkedHashMap<Integer, Sala> getRooms() {
-        return rooms;
-    }
-    
+   
     public void changeRoomType(String type, int key){
         this.rooms.get(key).setType(type);
     }

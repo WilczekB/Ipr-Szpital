@@ -29,9 +29,7 @@ public class Ordynator extends ZarzadzajacySalami {
     
     public void addReservation(int id, int number, String name, String surname, LocalDate startDate, LocalDate endDate, LocalTime startTime, LocalTime endTime){
         
-        //Rezerwacja reservation = new Rezerwacja(id, name, surname, startDate, endDate, startTime, endTime, number);
-        //Integer key = reservations.size();
-        //reservations.put(key, reservation);
+        
         
     }
     

@@ -131,7 +131,7 @@ public class Ekran_ordynator_lekarz extends javax.swing.JFrame {
 
         jLabelCategory.setText("Wybierz kategorię, po której chcesz coś znaleźć:");
 
-        CategoryComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        CategoryComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "ID rezerwacji", "Numer sali", "Typ sali", "Imię", "Nazwisko", "Data", "Godzina" }));
 
         jButtonDeleteReseravtion.setText("Usuń rezerwację");
         jButtonDeleteReseravtion.setToolTipText("");
@@ -250,9 +250,11 @@ public class Ekran_ordynator_lekarz extends javax.swing.JFrame {
     }//GEN-LAST:event_jButtonAddReservationActionPerformed
 
     private void jButtonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchActionPerformed
-        TableRowSorter mySorter = new TableRowSorter();
+        RezerwacjaTableModel model = (RezerwacjaTableModel) jTable.getModel();
+        TableRowSorter mySorter = new TableRowSorter(model);
+        jTable.setRowSorter(mySorter);
         String text = jSearchText.getText();
-        String category = CategoryComboBox.getItemAt(0);
+        String category = CategoryComboBox.getSelectedItem().toString();
         mySorter.setRowFilter(new MyFilter(text, category));
     }//GEN-LAST:event_jButtonSearchActionPerformed
 
